@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/00Title.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/01Home.unity
+    guid: d8c2eb1796085ef4c83a8d406da147fd
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/02EscapeThePig.unity
+    guid: 095fe58ce988c2c4586e539193245669
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/02JumpThePig.unity
+    guid: d3d7a382c3788f8429802eb7535bb313
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/02MoneyThePig.unity
+    guid: 97fd0165e3371ba439d2c9c42426c601
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/02ShootThePig.unity
+    guid: f9c910f98469fdb419500169a345d939
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/02SwingThePig.unity
+    guid: 18b4e522b75948e42bbe7664aaa89a6e
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/02TankThePig.unity
+    guid: 461133b7f475b3f44bbd7b71a4667bef
+  - enabled: 1
+    path: Assets/partyThePig/Scenes/03Result.unity
+    guid: 64753aa3646fd644faa7a8a3cb955f54
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 4b7e5dd7029c18e42b9ec1f9fc34042a, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
