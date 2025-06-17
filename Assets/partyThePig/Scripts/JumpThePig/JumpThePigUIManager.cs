@@ -12,6 +12,7 @@ public class JumpThePigUIManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _gameText;     //カウントダウンなどのテキスト
     [SerializeField] private Button _toResultButton;        //リザルトに行くボタン
+    [SerializeField] private Button _restartButton;         //リスタートボタン
     [SerializeField] private TextMeshProUGUI _scoreText;    //スコア表示のテキスト
 
     private void Awake()
@@ -50,13 +51,14 @@ public class JumpThePigUIManager : MonoBehaviour
     /// <summary>
     /// ゲームオーバー時にUIを変更
     /// </summary>
-    public void GameOverUI()
+    public void GameOverUI(string winnerName)
     {
         //セットアクティブを切り替え
         _toResultButton.gameObject.SetActive(true);
         _gameText.gameObject.SetActive(true);
+        _restartButton.gameObject.SetActive(true);
         //テキストを変更
-        _gameText.text = ("GameOver!!");
+        _gameText.text = (winnerName + " is the WINNER");
     }
 
 }
