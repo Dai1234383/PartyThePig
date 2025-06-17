@@ -13,6 +13,7 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private int _groundLayerNum = 6;
 
     [SerializeField] private int playerIndex; // 手動でインスペクターから設定
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     private PlayerInput input;
 
@@ -24,8 +25,21 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     private void Awake()
     {
         input = GetComponent<PlayerInput>();
+        playerIndex = input.playerIndex;  // 自動取得に変更
         Debug.Log($"This is player {playerIndex}");
         _rb = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    private void Start()
+    {
+        if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
+        {
+            _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+        }
+        else
+        {
+            Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
+        }
     }
 
     private void Update()

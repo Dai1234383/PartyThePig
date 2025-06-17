@@ -55,9 +55,9 @@ public class JumpThePigGameStateManager : MonoBehaviour
     /// <summary>
     /// ゲームオーバー処理
     /// </summary>
-    public void GameOver()
+    public void GameOver(string winnerName)
     {
-        JumpThePigUIManager.Instance.GameOverUI();
+        JumpThePigUIManager.Instance.GameOverUI(winnerName);
         _gameState = GameStateName.OVER;
     }
 }
