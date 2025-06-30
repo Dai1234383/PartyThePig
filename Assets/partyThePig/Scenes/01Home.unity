@@ -255,8 +255,28 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 47f93d2c-8b87-43a7-b519-78ce66edb488
     m_ActionName: UI/Point
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Controller
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2386383d-c636-4efa-9808-07f22ad749f5
+    m_ActionName: TankThePig/Rotate[/DualSenseGamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/DualSenseGamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fb2b44e2-2718-4ae5-bb0b-e2a71f4b9f15
+    m_ActionName: TankThePig/Move[/DualSenseGamepadHID/leftStick/up,/XInputControllerWindows/leftStick/up,/DualSenseGamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: af2aeae5-1508-49b3-af5c-49e58ff4dd91
+    m_ActionName: TankThePig/Shoot[/DualSenseGamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 74a22baf-7241-4696-a179-4852be5af9a9
+    m_ActionName: EscapeThePig/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/DualSenseGamepadHID/leftStick/up,/XInputControllerWindows/leftStick/up,/DualSenseGamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down,/DualSenseGamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/DualSenseGamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 846d5b97-4051-4674-9290-2a56f9ecf5f0
+    m_ActionName: EscapeThePig/Intaract[/DualSenseGamepadHID/buttonWest,/XInputControllerWindows/buttonWest,/Keyboard/f]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
