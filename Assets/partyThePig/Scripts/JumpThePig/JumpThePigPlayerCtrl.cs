@@ -26,10 +26,10 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     {
         input = GetComponent<PlayerInput>();
         playerIndex = input.playerIndex;  // ©“®æ“¾‚É•ÏX
-        Debug.Log($"This is player {playerIndex}");
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     private void Start()
     {
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
@@ -42,11 +42,7 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        Debug.Log(_isGrounded);
-    }
-
+    
     private void FixedUpdate()
     {
         if (JumpThePigGameStateManager.Instance.GameState == JumpThePigGameStateManager.GameStateName.GAME)
