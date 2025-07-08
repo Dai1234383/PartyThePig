@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1187714346917490173}
   - component: {fileID: 2705688698529533837}
-  - component: {fileID: -6159963449424698496}
-  - component: {fileID: -2188190164931433695}
   - component: {fileID: 7284148285264440378}
+  - component: {fileID: -2188190164931433695}
+  - component: {fileID: -1806278917656589707}
   m_Layer: 7
   m_Name: BulletPrefab
   m_TagString: Untagged
@@ -87,33 +87,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &-6159963449424698496
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &7284148285264440378
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8440271328604556110}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f97b036fd444554aad0332c12426620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundLayerNum: 6
+  _playerTag: Player
+  _speed: 15
+  _maxBounceCount: 3
+  shooter: {fileID: 0}
 --- !u!58 &-2188190164931433695
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,17 +139,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7284148285264440378
-MonoBehaviour:
+--- !u!50 &-1806278917656589707
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8440271328604556110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f97b036fd444554aad0332c12426620, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _groundLayerNum: 6
-  _playerTag: Player
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -11,10 +11,12 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private int _maxLife = 3;
 
     [SerializeField] private int playerIndex; // 手動でインスペクターから設定
-    [SerializeField] private SpriteRenderer _spriteRenderer;    //画像
+    [SerializeField] private SpriteRenderer[] _spriteRenderers;    //画像
 
     [SerializeField] private GameObject _bulletPrefab;  //弾のPrefab
     [SerializeField] private float bulletSpeed = 10f;   //弾の速度
+
+    [SerializeField] private int _intervalTime = 2000;
 
 
     private PlayerInput input;
@@ -30,26 +32,30 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
     private bool _isDamageInterval = false;   //無敵時間か
 
+    private int _bulletInterval;
+
     private void Awake()
     {
         input = GetComponent<PlayerInput>();
         playerIndex = input.playerIndex;  // 自動取得に変更
         _rb = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
     {
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+            for (int i = 0; i < 3; i++)
+            {
+                _spriteRenderers[i].color = PlayerManager.Instance.players[playerIndex].playerColor;
+            }
         }
         else
         {
             Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
         }
 
-        _currentLife=_maxLife;
+        _currentLife = _maxLife;
     }
 
     private void FixedUpdate()
@@ -67,6 +73,9 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             {
                 _rb.MoveRotation(_rb.rotation + -_rotateInput * _rotateSpeed * Time.fixedDeltaTime);
             }
+
+            _bulletInterval--;
+            Debug.Log(_bulletInterval);
         }
     }
 
@@ -78,6 +87,8 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     {
         if (TankThePigGameStateManager.Instance.GameState != TankThePigGameStateManager.GameStateName.GAME) return;
 
+        // 移動を一時的に有効化
+        _rb.constraints = RigidbodyConstraints2D.None;
         if (!_isRotate)
         {
             _isMove = true;
@@ -87,7 +98,9 @@ public class TankThePigPlayerCtrl : MonoBehaviour
         if (context.canceled)
         {
             _isMove = false;
+            _rb.constraints = RigidbodyConstraints2D.FreezePosition;
         }
+
     }
 
     /// <summary>
@@ -96,6 +109,9 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     public void OnRotate(InputAction.CallbackContext context)
     {
         if (TankThePigGameStateManager.Instance.GameState != TankThePigGameStateManager.GameStateName.GAME) return;
+
+        // 回転を一時的に有効化
+        _rb.constraints = RigidbodyConstraints2D.None;
 
         if (!_isMove)
         {
@@ -106,8 +122,11 @@ public class TankThePigPlayerCtrl : MonoBehaviour
         if (context.canceled)
         {
             _isRotate = false;
+            _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
+
+
 
     /// <summary>
     /// 発射入力
@@ -118,28 +137,34 @@ public class TankThePigPlayerCtrl : MonoBehaviour
         // ボタンが「押されたとき」だけ実行
         if (context.started && TankThePigGameStateManager.Instance.GameState == TankThePigGameStateManager.GameStateName.GAME)
         {
-            // 弾を生成（プレイヤーの位置 & 向き）
-            GameObject bullet = Instantiate(_bulletPrefab, transform.position + transform.up * 0.6f, transform.rotation);
-
-            // BulletController に発射者情報を渡す
-            TankThePigBalletCtrl bulletCtrl = bullet.GetComponent<TankThePigBalletCtrl>();
-            if (bulletCtrl != null)
+            if (_bulletInterval <= 0)
             {
-                bulletCtrl.shooter = this.gameObject;
-            }
 
-            // 弾の色をプレイヤーカラーに設定（SpriteRenderer が付いている前提）
-            SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
-            if (bulletRenderer != null && PlayerManager.Instance != null)
-            {
-                bulletRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
-            }
+                // 弾を生成（プレイヤーの位置 & 向き）
+                GameObject bullet = Instantiate(_bulletPrefab, transform.position + transform.up * 0.6f, transform.rotation);
 
-            // 弾に Rigidbody2D があるなら、前方に力を加える
-            Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-            if (bulletRb != null)
-            {
-                bulletRb.velocity = transform.up * bulletSpeed;
+                _bulletInterval = _intervalTime;
+
+                // BulletController に発射者情報を渡す
+                TankThePigBalletCtrl bulletCtrl = bullet.GetComponent<TankThePigBalletCtrl>();
+                if (bulletCtrl != null)
+                {
+                    bulletCtrl.shooter = this.gameObject;
+                }
+
+                // 弾の色をプレイヤーカラーに設定（SpriteRenderer が付いている前提）
+                SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
+                if (bulletRenderer != null && PlayerManager.Instance != null)
+                {
+                    bulletRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+                }
+
+                // 弾に Rigidbody2D があるなら、前方に力を加える
+                Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+                if (bulletRb != null)
+                {
+                    bulletRb.velocity = transform.up * bulletSpeed;
+                }
             }
         }
     }
@@ -156,34 +181,33 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     {
         _isDamageInterval = true;
         _currentLife--;
-        TankThePigUIManager.Instance.UpdateLifeUI(playerIndex,_currentLife);
-        if(_currentLife==0)
-        {
-            string winner;
-            if(playerIndex==0)
-            {
-                winner = "Player2";
-            }
-            else
-            {
-                winner = "Player1";
-            }
+        TankThePigUIManager.Instance.UpdateLifeUI(playerIndex, _currentLife);
 
+        if (_currentLife == 0)
+        {
+            string winner = playerIndex == 0 ? "Player2" : "Player1";
+            _rb.constraints = RigidbodyConstraints2D.FreezeAll;
             TankThePigGameStateManager.Instance.GameOver(winner);
         }
 
-        _spriteRenderer.color=Color.clear;
-        await UniTask.Delay(300);
-        _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
-        await UniTask.Delay(300);
-        _spriteRenderer.color = Color.clear;
-        await UniTask.Delay(300);
-        _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
-        await UniTask.Delay(300);
-        _spriteRenderer.color = Color.clear;
-        await UniTask.Delay(300);
-        _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+        // 点滅アニメーション（全スプライトに適用）
+        for (int i = 0; i < 3; i++)
+        {
+            foreach (var sr in _spriteRenderers)
+            {
+                if (sr != null) sr.color = Color.clear;
+            }
+            await UniTask.Delay(300);
 
-        _isDamageInterval =false;
+            foreach (var sr in _spriteRenderers)
+            {
+                if (sr != null) sr.color = PlayerManager.Instance.players[playerIndex].playerColor;
+            }
+            await UniTask.Delay(300);
+        }
+
+        _isDamageInterval = false;
     }
+
+
 }

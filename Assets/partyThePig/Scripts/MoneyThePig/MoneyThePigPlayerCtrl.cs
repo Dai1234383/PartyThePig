@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class JumpThePigPlayerCtrl : MonoBehaviour
+public class MoneyThePigPlayerCtrl : MonoBehaviour
 {
     [Header("操作設定")]
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
 
-    
+    [Header("地面判定")]
+    [SerializeField] private int _groundLayerNum = 6;
 
     [SerializeField] private int playerIndex; // 手動でインスペクターから設定
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private GameObject _collision;
 
     private PlayerInput input;
 
 
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
+    private bool _isGrounded = false;
 
-    private JumpThePigCollision _JumpThePigCollision;
-
+    public int PlayerIndex => playerIndex;
 
     private void Awake()
     {
@@ -30,7 +30,6 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
         playerIndex = input.playerIndex;  // 自動取得に変更
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _JumpThePigCollision = _collision.GetComponent<JumpThePigCollision>();
     }
 
     private void Start()
@@ -45,10 +44,10 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
         }
     }
 
-    
+
     private void FixedUpdate()
     {
-        if (JumpThePigGameStateManager.Instance.GameState == JumpThePigGameStateManager.GameStateName.GAME)
+        if (MoneyThePigGameStateManager.Instance.GameState == MoneyThePigGameStateManager.GameStateName.GAME)
         {
             Vector2 velocity = _rb.velocity;
             velocity.x = _moveInput.x * _moveSpeed;
@@ -62,7 +61,7 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME) return;
+        if (MoneyThePigGameStateManager.Instance.GameState != MoneyThePigGameStateManager.GameStateName.GAME) return;
 
         _moveInput = context.ReadValue<Vector2>();
     }
@@ -73,13 +72,35 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     /// <param name="context"></param>
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME) return;
+        if (MoneyThePigGameStateManager.Instance.GameState != MoneyThePigGameStateManager.GameStateName.GAME) return;
 
-        if (context.performed && _JumpThePigCollision.IsGrounded)
+        if (context.performed && _isGrounded)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
         }
     }
 
-    
+    /// <summary>
+    /// 接地判定
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == _groundLayerNum)
+        {
+            _isGrounded = true;
+        }
+    }
+
+    /// <summary>
+    /// 接地判定
+    /// </summary>
+    /// <param name="collision"></param>
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == _groundLayerNum)
+        {
+            _isGrounded = false;
+        }
+    }
 }

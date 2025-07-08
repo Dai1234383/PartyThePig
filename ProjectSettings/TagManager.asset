@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Itemmeet
   - ItemBox
+  - BomArea
   layers:
   - Default
   - TransparentFX
