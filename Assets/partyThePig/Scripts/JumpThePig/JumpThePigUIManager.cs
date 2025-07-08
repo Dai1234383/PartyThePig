@@ -13,7 +13,6 @@ public class JumpThePigUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _gameText;     //カウントダウンなどのテキスト
     [SerializeField] private Button _toResultButton;        //リザルトに行くボタン
     [SerializeField] private Button _restartButton;         //リスタートボタン
-    [SerializeField] private TextMeshProUGUI _scoreText;    //スコア表示のテキスト
 
     private void Awake()
     {
@@ -32,21 +31,6 @@ public class JumpThePigUIManager : MonoBehaviour
         await UniTask.Delay(1000);
         _gameText.gameObject.SetActive(false);
     }
-    private void Update()
-    {
-        UpdateScore();
-    }
-
-    /// <summary>
-    /// スコアの更新
-    /// </summary>
-    private void UpdateScore()
-    {
-        int score = JumpThePigScoreManager.Instance.MaxScore;
-        string scoreText = score.ToString();
-        _scoreText.text = ("score:" + scoreText + " m");
-    }
-
 
     /// <summary>
     /// ゲームオーバー時にUIを変更

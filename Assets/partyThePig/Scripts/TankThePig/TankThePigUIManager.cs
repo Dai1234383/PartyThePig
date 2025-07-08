@@ -80,7 +80,6 @@ public class TankThePigUIManager : MonoBehaviour
         //テキストを変更
         _gameText.text = (winnerName + " is the WINNER");
 
-        _player1Input.SwitchCurrentActionMap("UI");
     }
 
 }

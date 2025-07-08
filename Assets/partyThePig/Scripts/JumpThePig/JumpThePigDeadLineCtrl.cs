@@ -34,7 +34,6 @@ public class JumpThePigDeadLineCtrl : MonoBehaviour
 
         if (((1 << other.gameObject.layer) & _groundLayer) != 0)
         {
-            Debug.Log("aaa");
             Destroy(other.gameObject);
         }
     }
