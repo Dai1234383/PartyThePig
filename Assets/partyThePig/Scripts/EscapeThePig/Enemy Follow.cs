@@ -26,12 +26,28 @@ public class EnemyFollow : MonoBehaviour
         rb.MovePosition(newPosition);
     }
 
-    //  プレイヤー or 一番近いエサをターゲットに選ぶ
+    
     Transform GetCurrentTarget()
     {
+        // プレイヤーの透明状態をチェック
+        if(playerTarget != null)
+        {
+            PlayerStatus status = playerTarget.GetComponent < PlayerStatus>();
+            if (status != null && status.isInvisible)
+            {
+                // プレイヤーが透明なら、プレイヤーを無視する
+                playerTarget = null;
+            }
+        }
+
+        //最も近いエサを探す
         GameObject[] baits = GameObject.FindGameObjectsWithTag("Itemmeet");
 
-        if (baits.Length == 0) return playerTarget;
+        if (baits.Length == 0)
+        {
+            // プレイヤーが透明なら、プレイヤーを無視する
+            playerTarget = null;
+        }
 
         Transform closestBait = null;
         float minDistance = float.MaxValue;
