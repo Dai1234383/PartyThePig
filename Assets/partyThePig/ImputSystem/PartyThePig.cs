@@ -585,7 +585,7 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""306aa1c4-f6b1-4b44-a0a3-cd2a50b3a1ed"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -866,6 +866,164 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ShootThePig"",
+            ""id"": ""a2fc4eff-d2e8-446e-b4b8-1fd22c06c1d7"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""b968bca9-9a34-4ec5-b97f-361b30b47e27"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""7ea380d8-5653-4113-86be-34c3b9a79bb5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""675460f0-af62-4fbb-a170-47b105c4d1a3"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b43e5728-3cd4-488c-bab7-27702eb8f043"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""544b0cf8-a9a8-4101-842b-af34ccb0852d"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""b907081c-b4d9-49c8-b26d-46b0c20d471f"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a91748a0-7d60-4cb4-be58-b81589a4c655"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""117faec7-b898-4ef6-ba16-93487e444ec6"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""cda8834f-c594-4091-b7d0-2fcd95915374"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a3025365-c43b-44f8-ac16-606bb253ac15"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""4f15414e-8362-4e0d-a8f0-082be4ad4b14"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""63c04fdb-2184-429b-b4e5-1d1cbedec0cf"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d76c003e-12f0-4cdf-9b5b-0af1276b2f08"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06c2ee45-299e-49c9-9d0d-8a4beab1b6ba"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -913,6 +1071,10 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
         m_MoneyThePig = asset.FindActionMap("MoneyThePig", throwIfNotFound: true);
         m_MoneyThePig_Move = m_MoneyThePig.FindAction("Move", throwIfNotFound: true);
         m_MoneyThePig_Jump = m_MoneyThePig.FindAction("Jump", throwIfNotFound: true);
+        // ShootThePig
+        m_ShootThePig = asset.FindActionMap("ShootThePig", throwIfNotFound: true);
+        m_ShootThePig_Move = m_ShootThePig.FindAction("Move", throwIfNotFound: true);
+        m_ShootThePig_Shoot = m_ShootThePig.FindAction("Shoot", throwIfNotFound: true);
     }
 
     ~@PartyThePig()
@@ -923,6 +1085,7 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_TankThePig.enabled, "This will cause a leak and performance issues, PartyThePig.TankThePig.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_EscapeThePig.enabled, "This will cause a leak and performance issues, PartyThePig.EscapeThePig.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_MoneyThePig.enabled, "This will cause a leak and performance issues, PartyThePig.MoneyThePig.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_ShootThePig.enabled, "This will cause a leak and performance issues, PartyThePig.ShootThePig.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -1320,6 +1483,60 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
         }
     }
     public MoneyThePigActions @MoneyThePig => new MoneyThePigActions(this);
+
+    // ShootThePig
+    private readonly InputActionMap m_ShootThePig;
+    private List<IShootThePigActions> m_ShootThePigActionsCallbackInterfaces = new List<IShootThePigActions>();
+    private readonly InputAction m_ShootThePig_Move;
+    private readonly InputAction m_ShootThePig_Shoot;
+    public struct ShootThePigActions
+    {
+        private @PartyThePig m_Wrapper;
+        public ShootThePigActions(@PartyThePig wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_ShootThePig_Move;
+        public InputAction @Shoot => m_Wrapper.m_ShootThePig_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_ShootThePig; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ShootThePigActions set) { return set.Get(); }
+        public void AddCallbacks(IShootThePigActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ShootThePigActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ShootThePigActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+        }
+
+        private void UnregisterCallbacks(IShootThePigActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+        }
+
+        public void RemoveCallbacks(IShootThePigActions instance)
+        {
+            if (m_Wrapper.m_ShootThePigActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IShootThePigActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ShootThePigActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ShootThePigActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ShootThePigActions @ShootThePig => new ShootThePigActions(this);
     private int m_ControllerSchemeIndex = -1;
     public InputControlScheme ControllerScheme
     {
@@ -1360,5 +1577,10 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IShootThePigActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

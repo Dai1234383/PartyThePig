@@ -76,4 +76,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("03Result");
     }
+    
+    public void ReStartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
