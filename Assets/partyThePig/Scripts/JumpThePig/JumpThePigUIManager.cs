@@ -44,5 +44,4 @@ public class JumpThePigUIManager : MonoBehaviour
         //テキストを変更
         _gameText.text = (winnerName + " is the WINNER");
     }
-
 }

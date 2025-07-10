@@ -8,6 +8,14 @@ public class MoneyThePigCoinCtrl : MonoBehaviour
 
     private MoneyThePigPlayerCtrl _playerCtrl;
 
+    private void FixedUpdate()
+    {
+        if (MoneyThePigGameStateManager.Instance.GameState != MoneyThePigGameStateManager.GameStateName.GAME)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
