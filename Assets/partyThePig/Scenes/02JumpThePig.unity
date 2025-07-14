@@ -1464,7 +1464,7 @@ PrefabInstance:
     - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: _spriteRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1840051783}
     - target: {fileID: 3125769590366045006, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -1514,6 +1514,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+--- !u!212 &1840051783 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6801746933922481346, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+  m_PrefabInstance: {fileID: 1840051782}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1853842363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1763,7 +1768,7 @@ PrefabInstance:
     - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: _spriteRenderer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7131317625138570014}
     - target: {fileID: 3125769590366045006, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -1886,6 +1891,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+--- !u!212 &7131317625138570014 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6801746933922481346, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+  m_PrefabInstance: {fileID: 7131317625138570013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

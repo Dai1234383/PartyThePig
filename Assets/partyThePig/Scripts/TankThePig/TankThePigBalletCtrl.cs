@@ -5,7 +5,6 @@ using UnityEngine;
 public class TankThePigBalletCtrl : MonoBehaviour
 {
     [SerializeField] private int _groundLayerNum;
-    [SerializeField] private string _playerTag = "Player";
     [SerializeField] private float _speed = 10f;
     [SerializeField] private int _maxBounceCount = 3;
 

@@ -8,6 +8,8 @@ TagManager:
   - ItemBox
   - BomArea
   - Target
+  - Bait
+  - Enemy
   layers:
   - Default
   - TransparentFX
