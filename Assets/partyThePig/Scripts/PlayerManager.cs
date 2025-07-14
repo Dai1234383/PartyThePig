@@ -4,6 +4,9 @@ public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
 
+    [Header("プレイヤー設定（名前と色）")]
+    [SerializeField] private PlayerSetting[] playerSettings = new PlayerSetting[2];
+
     public PlayerData[] players = new PlayerData[2];
 
     void Awake()
@@ -17,10 +20,19 @@ public class PlayerManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // プレイヤー情報の初期化（仮）
-        players[0] = new PlayerData("Player1", Color.red);
-        players[1] = new PlayerData("Player2", Color.blue);
+        // 設定に基づいてプレイヤーデータを初期化
+        for (int i = 0; i < players.Length && i < playerSettings.Length; i++)
+        {
+            players[i] = new PlayerData(playerSettings[i].playerName, playerSettings[i].playerColor);
+        }
     }
+}
+
+[System.Serializable]
+public class PlayerSetting
+{
+    public string playerName = "Player";
+    public Color playerColor = Color.white;
 }
 
 [System.Serializable]

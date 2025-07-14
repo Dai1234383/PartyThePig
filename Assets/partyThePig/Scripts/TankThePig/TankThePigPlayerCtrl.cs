@@ -75,7 +75,6 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             }
 
             _bulletInterval--;
-            Debug.Log(_bulletInterval);
         }
     }
 

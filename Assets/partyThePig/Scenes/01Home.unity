@@ -436,7 +436,7 @@ Transform:
   m_GameObject: {fileID: 285556121}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: -1.5, z: 0}
+  m_LocalPosition: {x: 4.5, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -983,12 +983,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7e68af8fd4ad342966622024ecd1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
+  playerSettings:
   - playerName: Player1
-    playerColor: {r: 1, g: 0.028449502, b: 0, a: 0}
-    score: 0
+    playerColor: {r: 0.055752516, g: 1, b: 0, a: 1}
   - playerName: Player2
-    playerColor: {r: 0, g: 1, b: 0.13803053, a: 0}
+    playerColor: {r: 0, g: 0.021163225, b: 1, a: 1}
+  players:
+  - playerName: 
+    playerColor: {r: 0, g: 0, b: 0, a: 0}
+    score: 0
+  - playerName: 
+    playerColor: {r: 0, g: 0, b: 0, a: 0}
     score: 0
 --- !u!4 &1380194646
 Transform:
@@ -1030,7 +1035,7 @@ Transform:
   m_GameObject: {fileID: 1434359763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.5, y: -1.5, z: 0}
+  m_LocalPosition: {x: -4.5, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

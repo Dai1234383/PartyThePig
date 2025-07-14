@@ -1578,7 +1578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3365083901926434393, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3365083901926434393, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1620,11 +1620,20 @@ PrefabInstance:
       propertyPath: playerIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3583053105476153488, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1697592055}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
+--- !u!212 &1697592055 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3278060454358990365, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
+  m_PrefabInstance: {fileID: 1697592054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1957609324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,7 +1996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3365083901926434393, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 3365083901926434393, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2025,11 +2034,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3583053105476153488, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 3942274444573217751}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
+--- !u!212 &3942274444573217751 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3278060454358990365, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
+  m_PrefabInstance: {fileID: 3942274444573217750}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

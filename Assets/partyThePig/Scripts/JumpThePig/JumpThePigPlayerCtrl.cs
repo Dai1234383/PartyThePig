@@ -15,7 +15,6 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private GameObject _collision;
 
-    private PlayerInput input;
 
 
     private Rigidbody2D _rb;
@@ -26,8 +25,6 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
 
     private void Awake()
     {
-        input = GetComponent<PlayerInput>();
-        playerIndex = input.playerIndex;  // ©“®æ“¾‚É•ÏX
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _JumpThePigCollision = _collision.GetComponent<JumpThePigCollision>();
