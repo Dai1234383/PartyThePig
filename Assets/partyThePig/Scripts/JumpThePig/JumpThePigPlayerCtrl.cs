@@ -1,82 +1,100 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.InputSystem.Users;
 
+/// <summary>
+/// プレイヤーの操作スクリプト（InputSystem + Rigidbody2Dで移動とジャンプ）
+/// </summary>
 public class JumpThePigPlayerCtrl : MonoBehaviour
 {
+    [Header("プレイヤー設定")]
+    [SerializeField] private int playerIndex; // 0 = 左, 1 = 右（シーンにあらかじめ設定）
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private GameObject _collision;
+    [SerializeField] private InputActionAsset _action;
+
     [Header("操作設定")]
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
 
-    
-
-    [SerializeField] private int playerIndex; // 手動でインスペクターから設定
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private GameObject _collision;
-
-
-
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
-
-    private JumpThePigCollision _JumpThePigCollision;
-
+    private JumpThePigCollision _jumpCollision;
+    private PlayerInput _playerInput;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _JumpThePigCollision = _collision.GetComponent<JumpThePigCollision>();
+        _playerInput = GetComponent<PlayerInput>();
+        _jumpCollision = _collision.GetComponent<JumpThePigCollision>();
     }
 
     private void Start()
     {
-        if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
+        // スタート位置をプレイヤーインデックスで設定
+        transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
+
+        // 色をプレイヤー設定から適用
+        var data = PlayerManager.Instance.GetPlayerData(playerIndex);
+        if (data != null)
         {
-            _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+            _spriteRenderer.color = data.playerColor;
         }
-        else
+
+
+        // 初回の接続デバイスを保存（未保存時のみ）
+        var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
+        if (currentDevice != null)
         {
-            Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
+            PlayerManager.Instance.AssignDevice(playerIndex, currentDevice);
+        }
+
+        // 保存済みのデバイスを再ペアリング（シーン再読み込み時など）
+        var savedDevice = PlayerManager.Instance.GetDevice(playerIndex);
+        if (savedDevice != null)
+        {
+            _playerInput.user.UnpairDevices(); // デバイスだけ解除（ユーザーは残す）
+            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user); // 再ペアリング
         }
     }
 
-    
     private void FixedUpdate()
     {
-        if (JumpThePigGameStateManager.Instance.GameState == JumpThePigGameStateManager.GameStateName.GAME)
+        if (JumpThePigGameStateManager.Instance.GameState == JumpThePigGameStateManager.GameStateName.OVER)
         {
-            Vector2 velocity = _rb.velocity;
-            velocity.x = _moveInput.x * _moveSpeed;
-            _rb.velocity = velocity;
+            _playerInput.actions = _action;
+            _playerInput.SwitchCurrentActionMap("UI");
         }
+
+        if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME)
+            return;
+
+        var velocity = _rb.velocity;
+        velocity.x = _moveInput.x * _moveSpeed;
+        _rb.velocity = velocity;
     }
 
     /// <summary>
-    /// 移動入力（Invoke Unity Events で呼ばれる）
+    /// 移動入力（Invoke Unity Events 経由）
     /// </summary>
-    /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
         if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME) return;
-
         _moveInput = context.ReadValue<Vector2>();
     }
 
     /// <summary>
-    /// ジャンプ入力（Invoke Unity Events で呼ばれる）
+    /// ジャンプ入力（Invoke Unity Events 経由）
     /// </summary>
-    /// <param name="context"></param>
     public void OnJump(InputAction.CallbackContext context)
     {
         if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME) return;
 
-        if (context.performed && _JumpThePigCollision.IsGrounded)
+        if (context.performed && _jumpCollision.IsGrounded)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
         }
     }
-
-    
 }

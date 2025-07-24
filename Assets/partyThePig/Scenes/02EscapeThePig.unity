@@ -533,7 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 376064282}
   - component: {fileID: 376064281}
-  - component: {fileID: 376064280}
+  - component: {fileID: 376064283}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -541,26 +541,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &376064280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376064279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &376064281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +571,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &376064283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376064279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_PointAction: {fileID: 2599861670759941392, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_MoveAction: {fileID: -8657470594718157874, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_SubmitAction: {fileID: -1746451828447211016, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_CancelAction: {fileID: 4324421626894551927, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1001 &381934336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -600,6 +611,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 247089748877603380, guid: b031a01244d66f042a7a6f1d9e907840, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
+    - target: {fileID: 247089748877603380, guid: b031a01244d66f042a7a6f1d9e907840, type: 3}
       propertyPath: playerIndex
       value: 1
       objectReference: {fileID: 0}
@@ -607,6 +622,10 @@ PrefabInstance:
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 381934337}
+    - target: {fileID: 676729486920831169, guid: b031a01244d66f042a7a6f1d9e907840, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 376064283}
     - target: {fileID: 8970839705767719658, guid: b031a01244d66f042a7a6f1d9e907840, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -778,6 +797,7 @@ GameObject:
   - component: {fileID: 683359016}
   - component: {fileID: 683359017}
   - component: {fileID: 683359018}
+  - component: {fileID: 683359019}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -829,6 +849,20 @@ MonoBehaviour:
   spawnAreaMin: {x: -8, y: -5}
   spawnAreaMax: {x: 8, y: 5}
   maxItemBoxes: 3
+--- !u!114 &683359019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683359015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b801dca90068c498860e5173ae807a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftStartPos: {x: -3, y: -1}
+  rightStartPos: {x: 3, y: -1}
 --- !u!1 &870539928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,9 +1750,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 247089748877603380, guid: b031a01244d66f042a7a6f1d9e907840, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
+    - target: {fileID: 247089748877603380, guid: b031a01244d66f042a7a6f1d9e907840, type: 3}
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 3711083738113903190}
+    - target: {fileID: 676729486920831169, guid: b031a01244d66f042a7a6f1d9e907840, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 376064283}
     - target: {fileID: 8970839705767719658, guid: b031a01244d66f042a7a6f1d9e907840, type: 3}
       propertyPath: m_Name
       value: Player1

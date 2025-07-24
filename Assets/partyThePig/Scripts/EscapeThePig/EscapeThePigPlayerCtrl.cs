@@ -9,38 +9,54 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
     [Header("操作設定")]
     [SerializeField] private float _moveSpeed = 5f;
 
+    [SerializeField] private int playerIndex; // 0 = 左, 1 = 右（シーンにあらかじめ設定）
     [SerializeField] private SpriteRenderer _spriteRenderer;
-
-    private int playerIndex = -1;
+    [SerializeField] private InputActionAsset _action;
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
-    private PlayerInput _input;
+    private PlayerInput _playerInput;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _input = GetComponent<PlayerInput>();
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     private void Start()
     {
-        if (playerIndex == -1)
-        {
-            Debug.LogError("PlayerIndexの取得に失敗しました。");
-            return;
-        }
-
+        transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
 
         // 色設定
         if (PlayerManager.Instance != null)
         {
             _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
         }
+
+        // 初回の接続デバイスを保存（未保存時のみ）
+        var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
+        if (currentDevice != null)
+        {
+            PlayerManager.Instance.AssignDevice(playerIndex, currentDevice);
+        }
+
+        // 保存済みのデバイスを再ペアリング（シーン再読み込み時など）
+        var savedDevice = PlayerManager.Instance.GetDevice(playerIndex);
+        if (savedDevice != null)
+        {
+            _playerInput.user.UnpairDevices(); // デバイスだけ解除（ユーザーは残す）
+            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user); // 再ペアリング
+        }
     }
 
     private void FixedUpdate()
     {
+        if(EscapeThePigGameStateManager.Instance.GameState==EscapeThePigGameStateManager.GameStateName.OVER)
+        {
+            _playerInput.actions = _action;
+            _playerInput.SwitchCurrentActionMap("UI");
+        }
+
         if (EscapeThePigGameStateManager.Instance.GameState == EscapeThePigGameStateManager.GameStateName.GAME)
         {
             _rb.velocity = _moveInput * _moveSpeed;

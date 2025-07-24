@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 public class TankThePigPlayerCtrl : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
     [SerializeField] private int playerIndex; // 手動でインスペクターから設定
     [SerializeField] private SpriteRenderer[] _spriteRenderers;    //画像
+    [SerializeField] private InputActionAsset _action;
+
 
     [SerializeField] private GameObject _bulletPrefab;  //弾のPrefab
     [SerializeField] private float bulletSpeed = 10f;   //弾の速度
@@ -19,7 +22,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private int _intervalTime = 2000;
 
 
-    private PlayerInput input;
+    private PlayerInput _playerInput;
 
     private int _currentLife;
 
@@ -36,13 +39,16 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
     private void Awake()
     {
-        input = GetComponent<PlayerInput>();
-        playerIndex = input.playerIndex;  // 自動取得に変更
+        _playerInput = GetComponent<PlayerInput>();
+        playerIndex = _playerInput.playerIndex;  // 自動取得に変更
         _rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
+        // スタート位置をプレイヤーインデックスで設定
+        transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
+
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
             for (int i = 0; i < 3; i++)
@@ -55,11 +61,32 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
         }
 
+        // 初回の接続デバイスを保存（未保存時のみ）
+        var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
+        if (currentDevice != null)
+        {
+            PlayerManager.Instance.AssignDevice(playerIndex, currentDevice);
+        }
+
+        // 保存済みのデバイスを再ペアリング（シーン再読み込み時など）
+        var savedDevice = PlayerManager.Instance.GetDevice(playerIndex);
+        if (savedDevice != null)
+        {
+            _playerInput.user.UnpairDevices(); // デバイスだけ解除（ユーザーは残す）
+            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user); // 再ペアリング
+        }
+
         _currentLife = _maxLife;
     }
 
     private void FixedUpdate()
     {
+        if (TankThePigGameStateManager.Instance.GameState == TankThePigGameStateManager.GameStateName.OVER)
+        {
+            _playerInput.actions = _action;
+            _playerInput.SwitchCurrentActionMap("UI");
+        }
+
         if (TankThePigGameStateManager.Instance.GameState == TankThePigGameStateManager.GameStateName.GAME)
         {
 
