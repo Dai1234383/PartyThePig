@@ -56,9 +56,9 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Point"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""47f93d2c-8b87-43a7-b519-78ce66edb488"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false

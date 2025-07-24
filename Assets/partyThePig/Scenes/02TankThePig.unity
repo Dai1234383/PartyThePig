@@ -457,9 +457,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 1456312114}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: b968bca9-9a34-4ec5-b97f-361b30b47e27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 7ea380d8-5653-4113-86be-34c3b9a79bb5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: ShootThePig/Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: ShootThePig/Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5330831201906538608, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
     - target: {fileID: 5330831201906538608, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
       propertyPath: playerIndex
       value: 1
@@ -1425,6 +1453,7 @@ GameObject:
   - component: {fileID: 1625317223}
   - component: {fileID: 1625317222}
   - component: {fileID: 1625317224}
+  - component: {fileID: 1625317225}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1474,6 +1503,20 @@ MonoBehaviour:
   _stagePrefabs:
   - {fileID: 1734645562685935978, guid: f12da8bf151d48741b22a3e2d00f82e0, type: 3}
   - {fileID: 2782903671804871061, guid: 77f13922505f4124cb5496a8b1e08924, type: 3}
+--- !u!114 &1625317225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625317221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b801dca90068c498860e5173ae807a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftStartPos: {x: -6.5, y: 0}
+  rightStartPos: {x: 6.5, y: 0}
 --- !u!1 &1625540269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,6 +1976,26 @@ PrefabInstance:
     - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
       propertyPath: m_UIInputModule
       value: 
+      objectReference: {fileID: 1456312114}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: b968bca9-9a34-4ec5-b97f-361b30b47e27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 7ea380d8-5653-4113-86be-34c3b9a79bb5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: ShootThePig/Move
+      objectReference: {fileID: 0}
+    - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: ShootThePig/Shoot
       objectReference: {fileID: 0}
     - target: {fileID: 3386213518912835213, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
@@ -1958,6 +2021,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5330831201906538608, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

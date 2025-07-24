@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 459820729}
   - component: {fileID: 459820728}
   - component: {fileID: 459820730}
+  - component: {fileID: 459820731}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -530,6 +531,20 @@ MonoBehaviour:
   _spawnInterval: 1
   _spawnPoint: 9
   _spawnRange: 4.5
+--- !u!114 &459820731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459820726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b801dca90068c498860e5173ae807a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftStartPos: {x: -3.5, y: -1}
+  rightStartPos: {x: 3.5, y: -1}
 --- !u!1 &619715877
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,6 +995,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6129305540006589704, guid: e1b2bf725db9e064881a6c6fc1691163, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 1509265826}
+    - target: {fileID: 8268625032999590299, guid: e1b2bf725db9e064881a6c6fc1691163, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
     - target: {fileID: 8268625032999590299, guid: e1b2bf725db9e064881a6c6fc1691163, type: 3}
       propertyPath: playerIndex
       value: 1
@@ -1402,7 +1425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509265825}
   - component: {fileID: 1509265824}
-  - component: {fileID: 1509265823}
+  - component: {fileID: 1509265826}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1410,26 +1433,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1509265823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509265822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &1509265824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1460,6 +1463,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1509265826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509265822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_PointAction: {fileID: 2599861670759941392, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_MoveAction: {fileID: -8657470594718157874, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_SubmitAction: {fileID: -1746451828447211016, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_CancelAction: {fileID: 4324421626894551927, guid: 246a4670592ed68409978948e127bb40, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1 &1665054478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,6 +2013,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6129305540006589704, guid: e1b2bf725db9e064881a6c6fc1691163, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 1509265826}
+    - target: {fileID: 8268625032999590299, guid: e1b2bf725db9e064881a6c6fc1691163, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
     - target: {fileID: 8268625032999590299, guid: e1b2bf725db9e064881a6c6fc1691163, type: 3}
       propertyPath: _spriteRenderer
       value: 

@@ -390,6 +390,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1853842364}
     m_Modifications:
+    - target: {fileID: 4139882469075955776, guid: ef61b178eab053c43908304096834b6c, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139882469075955776, guid: ef61b178eab053c43908304096834b6c, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 1127798152}
     - target: {fileID: 6367594704162370976, guid: ef61b178eab053c43908304096834b6c, type: 3}
       propertyPath: m_Name
       value: ReStart
@@ -1226,6 +1234,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8169249890358781031, guid: 6f1cbb4eb8dd29644bc7780015a20a25, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169249890358781031, guid: 6f1cbb4eb8dd29644bc7780015a20a25, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 334025934}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1306,6 +1322,7 @@ GameObject:
   - component: {fileID: 1516128114}
   - component: {fileID: 1516128116}
   - component: {fileID: 1516128115}
+  - component: {fileID: 1516128117}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1352,6 +1369,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fff32cb41f83f74989a7c3da0aeb9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1516128117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516128113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b801dca90068c498860e5173ae807a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftStartPos: {x: -3, y: -1}
+  rightStartPos: {x: 3, y: -1}
 --- !u!1 &1548102408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,16 +1489,52 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
+    - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: playerIndex
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: _eventSystem
+      value: 
+      objectReference: {fileID: 903414225}
+    - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 1840051783}
+    - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: _inputSystemUIInputModule
+      value: 
+      objectReference: {fileID: 903414227}
     - target: {fileID: 3125769590366045006, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 903414227}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: b968bca9-9a34-4ec5-b97f-361b30b47e27
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 7ea380d8-5653-4113-86be-34c3b9a79bb5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: ShootThePig/Move[/DualShock4GamepadHID/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/up,/DualShock4GamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/down,/DualShock4GamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/left,/DualShock4GamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right,/XInputControllerWindows1/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: ShootThePig/Shoot[/DualShock4GamepadHID/buttonWest,/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest,/Keyboard/enter]
       objectReference: {fileID: 0}
     - target: {fileID: 9036784906381941317, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1762,13 +1829,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: 246a4670592ed68409978948e127bb40, type: 3}
+    - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: playerIndex
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: _eventSystem
+      value: 
+      objectReference: {fileID: 903414225}
+    - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: _playerInput
+      value: 
+      objectReference: {fileID: 7131317625138570018}
+    - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: _action.m_Name
+      value: Action
       objectReference: {fileID: 0}
     - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 7131317625138570014}
+    - target: {fileID: 1033638815909382522, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: _inputSystemUIInputModule
+      value: 
+      objectReference: {fileID: 903414227}
     - target: {fileID: 3125769590366045006, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_Name
       value: Player1
@@ -1776,10 +1863,10 @@ PrefabInstance:
     - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_UIInputModule
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 903414227}
     - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionId
@@ -1814,6 +1901,14 @@ PrefabInstance:
       value: 846d5b97-4051-4674-9290-2a56f9ecf5f0
       objectReference: {fileID: 0}
     - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
+      value: b968bca9-9a34-4ec5-b97f-361b30b47e27
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 7ea380d8-5653-4113-86be-34c3b9a79bb5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: UI/Submit[/XInputControllerWindows/buttonSouth,/Keyboard/enter]
       objectReference: {fileID: 0}
@@ -1844,6 +1939,22 @@ PrefabInstance:
     - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_ActionName
       value: EscapeThePig/Intaract[/XInputControllerWindows/buttonWest,/Keyboard/f]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionName
+      value: MoneyThePig/Move[/DualShock4GamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/left,/DualShock4GamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right,/XInputControllerWindows1/leftStick/right,/Keyboard/a,/Keyboard/d]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: MoneyThePig/Jump[/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth,/XInputControllerWindows1/buttonSouth,/Keyboard/space]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
+      value: ShootThePig/Move[/DualShock4GamepadHID/leftStick/up,/XInputControllerWindows/leftStick/up,/XInputControllerWindows1/leftStick/up,/DualShock4GamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down,/XInputControllerWindows1/leftStick/down,/DualShock4GamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/XInputControllerWindows1/leftStick/left,/DualShock4GamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right,/XInputControllerWindows1/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: ShootThePig/Shoot[/DualShock4GamepadHID/buttonWest,/XInputControllerWindows/buttonWest,/XInputControllerWindows1/buttonWest,/Keyboard/enter]
       objectReference: {fileID: 0}
     - target: {fileID: 9036784906381941317, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1896,6 +2007,17 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6801746933922481346, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
   m_PrefabInstance: {fileID: 7131317625138570013}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7131317625138570018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+  m_PrefabInstance: {fileID: 7131317625138570013}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1819942539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
