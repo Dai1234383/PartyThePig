@@ -12,7 +12,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private int _maxLife = 3;
 
     [SerializeField] private int playerIndex; // 手動でインスペクターから設定
-    [SerializeField] private SpriteRenderer[] _spriteRenderers;    //画像
+    [SerializeField] private SpriteRenderer _spriteRenderer;    //画像
     [SerializeField] private InputActionAsset _action;
 
 
@@ -20,6 +20,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private float bulletSpeed = 10f;   //弾の速度
 
     [SerializeField] private int _intervalTime = 2000;
+    [SerializeField] private Sprite _clearSprite;
 
 
     private PlayerInput _playerInput;
@@ -36,6 +37,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     private bool _isDamageInterval = false;   //無敵時間か
 
     private int _bulletInterval;
+    private Sprite _keepSprite;
 
     private void Awake()
     {
@@ -51,10 +53,8 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                _spriteRenderers[i].color = PlayerManager.Instance.players[playerIndex].playerColor;
-            }
+            _spriteRenderer.sprite = PlayerManager.Instance.players[playerIndex].playerSprite;
+            _keepSprite=_spriteRenderer.sprite;
         }
         else
         {
@@ -216,24 +216,21 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             TankThePigGameStateManager.Instance.GameOver(winner);
         }
 
-        // 点滅アニメーション（全スプライトに適用）
         for (int i = 0; i < 3; i++)
         {
-            foreach (var sr in _spriteRenderers)
+            if (_spriteRenderer != null)
             {
-                if (sr != null) sr.color = Color.clear;
+                _spriteRenderer.sprite=_clearSprite;
             }
             await UniTask.Delay(300);
 
-            foreach (var sr in _spriteRenderers)
+            if (_spriteRenderer != null)
             {
-                if (sr != null) sr.color = PlayerManager.Instance.players[playerIndex].playerColor;
+                _spriteRenderer.sprite = _keepSprite;
             }
             await UniTask.Delay(300);
         }
 
         _isDamageInterval = false;
     }
-
-
 }

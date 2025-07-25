@@ -406,6 +406,10 @@ PrefabInstance:
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 1862037866}
+    - target: {fileID: 6550748374875827672, guid: b5e14e72f9a18e049859f3ae2de24a76, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6792930743391026324, guid: b5e14e72f9a18e049859f3ae2de24a76, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5
@@ -1049,14 +1053,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSettings:
   - playerName: Player1
-    playerColor: {r: 0.055752516, g: 1, b: 0, a: 1}
+    playerSprite: {fileID: 21300000, guid: 833029ec82cfa4fe3afd6f6db6720fae, type: 3}
+    playerColor: {r: 0.10213423, g: 1, b: 0, a: 1}
   - playerName: Player2
-    playerColor: {r: 0, g: 0.021163225, b: 1, a: 1}
+    playerSprite: {fileID: 21300000, guid: 133277ff5b31a4fcfa8b03878dcef183, type: 3}
+    playerColor: {r: 0.0059747696, g: 0, b: 1, a: 1}
   players:
   - playerName: 
+    playerSprite: {fileID: 0}
     playerColor: {r: 0, g: 0, b: 0, a: 0}
     score: 0
   - playerName: 
+    playerSprite: {fileID: 0}
     playerColor: {r: 0, g: 0, b: 0, a: 0}
     score: 0
 --- !u!4 &1380194646

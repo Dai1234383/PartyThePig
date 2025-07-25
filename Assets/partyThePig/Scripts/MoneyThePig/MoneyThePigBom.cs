@@ -13,6 +13,13 @@ public class MoneyThePigBom : MonoBehaviour
 
     private MoneyThePigPlayerCtrl _playerCtrl;
 
+    private void FixedUpdate()
+    {
+        if(MoneyThePigGameStateManager.Instance.GameState == MoneyThePigGameStateManager.GameStateName.OVER)
+        {
+            Destroy(gameObject);
+        }
+    }
     private async void OnEnable()
     {
         //カウントダウン

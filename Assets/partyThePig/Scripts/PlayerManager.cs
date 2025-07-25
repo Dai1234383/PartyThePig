@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviour
         // プレイヤーデータ初期化
         for (int i = 0; i < players.Length; i++)
         {
-            players[i] = new PlayerData(playerSettings[i].playerName, playerSettings[i].playerColor);
+            players[i] = new PlayerData(playerSettings[i].playerName, playerSettings[i].playerSprite, playerSettings[i].playerColor);
         }
     }
 
@@ -98,7 +98,8 @@ public class PlayerManager : MonoBehaviour
 public class PlayerSetting
 {
     public string playerName = "Player";
-    public Color playerColor = Color.white;
+    public Sprite playerSprite;
+    public Color playerColor;
 }
 
 /// <summary>
@@ -108,13 +109,17 @@ public class PlayerSetting
 public class PlayerData
 {
     public string playerName;
+    public Sprite playerSprite;
     public Color playerColor;
+    
     public int score;
 
-    public PlayerData(string name, Color color)
+    public PlayerData(string name, Sprite sprite, Color color)
     {
         playerName = name;
+        playerSprite = sprite;
         playerColor = color;
+
         score = 0;
     }
 }
