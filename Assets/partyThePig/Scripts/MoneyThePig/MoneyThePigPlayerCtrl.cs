@@ -41,7 +41,7 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
 
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+            _spriteRenderer.sprite = PlayerManager.Instance.players[playerIndex].playerSprite;
         }
         else
         {

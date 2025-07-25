@@ -40,7 +40,7 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
         var data = PlayerManager.Instance.GetPlayerData(playerIndex);
         if (data != null)
         {
-            _spriteRenderer.color = data.playerColor;
+            _spriteRenderer.sprite = data.playerSprite;
         }
 
 

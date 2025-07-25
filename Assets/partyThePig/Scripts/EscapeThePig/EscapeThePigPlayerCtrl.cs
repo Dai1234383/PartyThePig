@@ -30,7 +30,7 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
         // 色設定
         if (PlayerManager.Instance != null)
         {
-            _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+            _spriteRenderer.sprite = PlayerManager.Instance.players[playerIndex].playerSprite;
         }
 
         // 初回の接続デバイスを保存（未保存時のみ）
@@ -51,7 +51,7 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(EscapeThePigGameStateManager.Instance.GameState==EscapeThePigGameStateManager.GameStateName.OVER)
+        if (EscapeThePigGameStateManager.Instance.GameState == EscapeThePigGameStateManager.GameStateName.OVER)
         {
             _playerInput.actions = _action;
             _playerInput.SwitchCurrentActionMap("UI");

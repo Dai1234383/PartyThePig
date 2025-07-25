@@ -25,7 +25,7 @@ public class HomePlayerCtrl : MonoBehaviour
         var data = PlayerManager.Instance.GetPlayerData(playerIndex);
         if (data != null)
         {
-            _spriteRenderer.color = data.playerColor;
+            _spriteRenderer.sprite = data.playerSprite;
         }
 
         // 初回の接続デバイスを保存（未保存時のみ）

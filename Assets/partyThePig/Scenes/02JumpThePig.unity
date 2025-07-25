@@ -329,12 +329,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142685073}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5978675, y: 1.9876976, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 936308762}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &326130264
 GameObject:
@@ -1081,6 +1081,7 @@ Transform:
   - {fileID: 1968883869}
   - {fileID: 326130265}
   - {fileID: 602320549}
+  - {fileID: 142685075}
   m_Father: {fileID: 506003053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1020270533 stripped
@@ -1944,6 +1945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 6801746933922481346, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_UIInputModule
       value: 
@@ -2113,4 +2118,3 @@ SceneRoots:
   - {fileID: 7131317625138570013}
   - {fileID: 1840051782}
   - {fileID: 903414226}
-  - {fileID: 142685075}
