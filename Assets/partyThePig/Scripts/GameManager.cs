@@ -74,9 +74,18 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("03Result");
     }
-    
+
     public void ReStartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GameEnd()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;//ゲームプレイ終了
+#else
+        Application.Quit();//ゲームプレイ終了
+#endif
     }
 }
