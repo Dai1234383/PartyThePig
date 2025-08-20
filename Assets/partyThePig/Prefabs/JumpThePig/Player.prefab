@@ -338,6 +338,30 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 0838abb3-3c75-4feb-9f99-f07f1b433182
     m_ActionName: MoneyThePig/Jump[/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1033638815909382522}
+        m_TargetAssemblyTypeName: JumpThePigPlayerCtrl, Assembly-CSharp
+        m_MethodName: OnPose
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 10802090-120f-47ea-b827-84e1e264c332
+    m_ActionName: JumpThePig/Pose[/Keyboard/escape,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b968bca9-9a34-4ec5-b97f-361b30b47e27
+    m_ActionName: ShootThePig/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7ea380d8-5653-4113-86be-34c3b9a79bb5
+    m_ActionName: ShootThePig/Shoot[/XInputControllerWindows/buttonWest,/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Controller
   m_DefaultActionMap: JumpThePig
