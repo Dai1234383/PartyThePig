@@ -1597,6 +1597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 6801746933922481346, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_UIInputModule
       value: 
@@ -1948,6 +1952,10 @@ PrefabInstance:
     - target: {fileID: 6801746933922481346, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6801746933922481346, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005784504255345512, guid: 8ce69649a92c4724285c24541cffba10, type: 3}
       propertyPath: m_UIInputModule

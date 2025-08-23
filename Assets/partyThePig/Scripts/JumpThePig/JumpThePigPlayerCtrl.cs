@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
+using Cysharp.Threading.Tasks;
 
 /// <summary>
 /// プレイヤーの操作スクリプト（InputSystem + Rigidbody2Dで移動とジャンプ）
@@ -22,11 +23,15 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     private JumpThePigCollision _jumpCollision;
     private PlayerInput _playerInput;
 
+    private AnimalAnimation _animalAnim;
+    private bool _isAnime = false;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
         _jumpCollision = _collision.GetComponent<JumpThePigCollision>();
+
     }
 
     private void Start()
@@ -35,12 +40,33 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
         transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
 
         // 色をプレイヤー設定から適用
-        var data = PlayerManager.Instance.GetPlayerData(playerIndex);
-        if (data != null)
+        if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            _spriteRenderer.sprite = data.playerSprite;
-        }
+            var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
+            if (playerPrefab != null)
+            {
 
+
+                // Prefabをこのオブジェクトの子として生成
+                GameObject playerObj = Instantiate(playerPrefab, transform);
+
+                // 色を設定（SpriteRendererがある場合）
+                var renderer = playerObj.GetComponent<SpriteRenderer>();
+                if (renderer != null)
+                {
+                    renderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"プレイヤーPrefabが設定されていません: {playerIndex}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
+        }
+        _animalAnim = GetComponentInChildren<AnimalAnimation>();
 
         // 初回の接続デバイスを保存（未保存時のみ）
         var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
@@ -62,6 +88,7 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     {
         if (JumpThePigGameStateManager.Instance.GameState == JumpThePigGameStateManager.GameStateName.OVER)
         {
+            _rb.velocity = Vector2.zero;
             _playerInput.actions = _action;
             _playerInput.SwitchCurrentActionMap("UI");
         }
@@ -81,18 +108,39 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
     {
         if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME) return;
         _moveInput = context.ReadValue<Vector2>();
+
+        if (_animalAnim != null && !_isAnime)
+        {
+            if (_moveInput != Vector2.zero)
+            {
+                _animalAnim.Walk(); // 入力あり → Walk
+            }
+            else if (context.canceled)
+            {
+                _animalAnim.Idle(); // 入力終了 → Idle
+            }
+        }
     }
 
     /// <summary>
     /// ジャンプ入力（Invoke Unity Events 経由）
     /// </summary>
-    public void OnJump(InputAction.CallbackContext context)
+    public async void OnJump(InputAction.CallbackContext context)
     {
         if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME) return;
 
         if (context.performed && _jumpCollision.IsGrounded)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+
+            if (_animalAnim != null)
+            {
+                _animalAnim.Jump(); // ジャンプアニメーションも再生
+                _isAnime = true;
+                await UniTask.Delay(1000);
+                _animalAnim.Idle();
+                _isAnime = false;
+            }
         }
     }
 }

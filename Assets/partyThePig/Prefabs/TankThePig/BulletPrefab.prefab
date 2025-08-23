@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundLayerNum: 6
-  _playerTag: Player
   _speed: 15
   _maxBounceCount: 3
   shooter: {fileID: 0}
@@ -113,7 +112,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 8440271328604556110}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: df8a461c9579d8b4b8e99fcad8c399da, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -155,7 +154,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: df8a461c9579d8b4b8e99fcad8c399da, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

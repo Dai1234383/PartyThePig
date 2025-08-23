@@ -20,10 +20,38 @@ public class HomePlayerCtrl : MonoBehaviour
     private void Start()
     {
         // 色をプレイヤー設定から適用
-        var data = PlayerManager.Instance.GetPlayerData(playerIndex);
-        if (data != null)
+        if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            _spriteRenderer.sprite = data.playerSprite;
+            var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
+            if (playerPrefab != null)
+            {
+                // すでにオブジェクトがある場合は消しておく
+                if (transform.childCount > 0)
+                {
+                    foreach (Transform child in transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+
+                // Prefabをこのオブジェクトの子として生成
+                GameObject playerObj = Instantiate(playerPrefab, transform);
+
+                // 色を設定（SpriteRendererがある場合）
+                var renderer = playerObj.GetComponent<SpriteRenderer>();
+                if (renderer != null)
+                {
+                    renderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"プレイヤーPrefabが設定されていません: {playerIndex}");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
         }
 
         // 初回の接続デバイスを保存（未保存時のみ）

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
@@ -14,6 +15,9 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
     private Vector2 _moveInput;
     private PlayerInput _playerInput;
 
+    private AnimalAnimation _animalAnim;
+    private bool _isAnime = false;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -26,10 +30,40 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
         transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
 
         // 色設定
-        if (PlayerManager.Instance != null)
+        if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            _spriteRenderer.sprite = PlayerManager.Instance.players[playerIndex].playerSprite;
+            var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
+            if (playerPrefab != null)
+            {
+                // すでにオブジェクトがある場合は消しておく
+                if (transform.childCount > 0)
+                {
+                    foreach (Transform child in transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+
+                // Prefabをこのオブジェクトの子として生成
+                GameObject playerObj = Instantiate(playerPrefab, transform);
+
+                // 色を設定（SpriteRendererがある場合）
+                var renderer = playerObj.GetComponent<SpriteRenderer>();
+                if (renderer != null)
+                {
+                    renderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"プレイヤーPrefabが設定されていません: {playerIndex}");
+            }
         }
+        else
+        {
+            Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
+        }
+        _animalAnim = GetComponentInChildren<AnimalAnimation>();
 
         // 初回の接続デバイスを保存（未保存時のみ）
         var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
@@ -73,12 +107,24 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
         if (EscapeThePigGameStateManager.Instance.GameState != EscapeThePigGameStateManager.GameStateName.GAME) return;
 
         _moveInput = context.ReadValue<Vector2>();
+
+        if (_animalAnim != null && !_isAnime)
+        {
+            if (_moveInput != Vector2.zero)
+            {
+                _animalAnim.Walk(); // 入力あり → Walk
+            }
+            else if (context.canceled)
+            {
+                _animalAnim.Idle(); // 入力終了 → Idle
+            }
+        }
     }
 
     /// <summary>
     /// インタラクト入力（アイテム使用）
     /// </summary>
-    public void OnInteract(InputAction.CallbackContext context)
+    public async void OnInteract(InputAction.CallbackContext context)
     {
         if (EscapeThePigGameStateManager.Instance.GameState != EscapeThePigGameStateManager.GameStateName.GAME) return;
         if (!context.performed) return;
@@ -87,6 +133,15 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
         if (itemSystem != null)
         {
             itemSystem.UseItem();
+        }
+
+        if (_animalAnim != null)
+        {
+            _animalAnim.Eat(); // Eatアニメーションも再生
+            _isAnime = true;
+            await UniTask.Delay(500);
+            _animalAnim.Idle();
+            _isAnime = false;
         }
     }
 

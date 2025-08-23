@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class TankThePigBalletCtrl : MonoBehaviour
 {
     [SerializeField] private int _groundLayerNum;
@@ -8,19 +9,18 @@ public class TankThePigBalletCtrl : MonoBehaviour
 
     public GameObject shooter; // 弾を撃ったプレイヤー
 
-    private Vector2 _direction; // 現在の移動方向
+    private Rigidbody2D _rb;
     private int _currentBounceCount;
 
     private void Start()
     {
-        // 初期方向を設定（前方）
-        _direction = transform.up;
-    }
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.gravityScale = 0;             // 弾なので重力無効
+        _rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // すり抜け防止
+        _rb.freezeRotation = true;        // 回転は固定
 
-    private void Update()
-    {
-        // 手動で移動（物理を使わない）
-        transform.position += (Vector3)(_direction * _speed * Time.deltaTime);
+        // 初期速度を設定
+        _rb.velocity = -transform.right * _speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,6 +34,7 @@ public class TankThePigBalletCtrl : MonoBehaviour
             }
             return;
         }
+
         // プレイヤーに当たったら処理
         TankThePigPlayerCtrl hitPlayer = collision.gameObject.GetComponent<TankThePigPlayerCtrl>();
         if (hitPlayer != null)
@@ -43,15 +44,10 @@ public class TankThePigBalletCtrl : MonoBehaviour
             return;
         }
 
-        // 壁に当たったら反射
+        // 壁に当たった場合
         if (collision.gameObject.layer == _groundLayerNum)
         {
             _currentBounceCount++;
-
-            // 反射方向を計算
-            Vector2 normal = collision.contacts[0].normal;
-            _direction = Vector2.Reflect(_direction, normal).normalized;
-
             if (_currentBounceCount >= _maxBounceCount)
             {
                 Destroy(gameObject);
