@@ -97,7 +97,7 @@ public class PlayerManager : MonoBehaviour
 public class PlayerSetting
 {
     public string playerName = "Player";
-    public Sprite playerSprite;
+    public GameObject playerSprite;
     public Color playerColor;
 }
 
@@ -108,15 +108,15 @@ public class PlayerSetting
 public class PlayerData
 {
     public string playerName;
-    public Sprite playerSprite;
+    public GameObject playerSprite;
     public Color playerColor;
     
     public int score;
 
-    public PlayerData(string name, Sprite sprite, Color color)
+    public PlayerData(string name, GameObject spritePrefab, Color color)
     {
         playerName = name;
-        playerSprite = sprite;
+        playerSprite = spritePrefab;
         playerColor = color;
 
         score = 0;

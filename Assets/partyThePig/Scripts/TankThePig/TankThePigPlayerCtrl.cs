@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
@@ -10,7 +11,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private int _maxLife = 3;
 
     [SerializeField] private int playerIndex; // 手動でインスペクターから設定
-    [SerializeField] private SpriteRenderer _spriteRenderer;    //画像
+    [SerializeField] private SpriteRenderer[] _spriteRenderers;    //画像
     [SerializeField] private InputActionAsset _action;
 
 
@@ -37,6 +38,11 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     private int _bulletInterval;
     private Sprite _keepSprite;
 
+    private AnimalAnimation _animalAnim;
+    private bool _isAnime = false;
+
+    private Sprite[] _originalSprites; // 各子の元スプライトを保存しておく
+
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
@@ -51,13 +57,44 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            _spriteRenderer.sprite = PlayerManager.Instance.players[playerIndex].playerSprite;
-            _keepSprite=_spriteRenderer.sprite;
+            var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
+            if (playerPrefab != null)
+            {
+                // すでにオブジェクトがある場合は消しておく
+                if (transform.childCount > 0)
+                {
+                    foreach (Transform child in transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+
+                // Prefabをこのオブジェクトの子として生成
+                GameObject playerObj = Instantiate(playerPrefab, transform);
+
+                // 色を設定（SpriteRendererがある場合）
+                var renderer = playerObj.GetComponent<SpriteRenderer>();
+                if (renderer != null)
+                {
+                    renderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"プレイヤーPrefabが設定されていません: {playerIndex}");
+            }
         }
         else
         {
             Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
         }
+        _animalAnim = GetComponentInChildren<AnimalAnimation>();
+
+        _spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true)
+            .Where(sr => sr.gameObject != this.gameObject)
+            .ToArray();
+        // 各 SpriteRenderer が持っている元スプライトを保存
+        _originalSprites = _spriteRenderers.Select(sr => sr.sprite).ToArray();
 
         // 初回の接続デバイスを保存（未保存時のみ）
         var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
@@ -89,7 +126,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
         {
 
             // 移動処理（向いている方向に移動）
-            Vector2 moveDir = transform.up * _moveInput.y; // 前後方向
+            Vector2 moveDir = -transform.right * _moveInput.y; // 前後方向
             _rb.velocity = moveDir * _moveSpeed;
 
 
@@ -125,6 +162,17 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             _rb.constraints = RigidbodyConstraints2D.FreezePosition;
         }
 
+        if (_animalAnim != null && !_isAnime)
+        {
+            if (_moveInput != Vector2.zero)
+            {
+                _animalAnim.Walk(); // 入力あり → Walk
+            }
+            else if (context.canceled)
+            {
+                _animalAnim.Idle(); // 入力終了 → Idle
+            }
+        }
     }
 
     /// <summary>
@@ -142,12 +190,26 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             _isRotate = true;
             _rotateInput = context.ReadValue<float>();
         }
+        
+        if (_animalAnim != null && !_isAnime)
+        {
+            if (_moveInput != Vector2.zero)
+            {
+                _animalAnim.Walk(); // 入力あり → Walk
+            }
+            else if (context.canceled)
+            {
+                _animalAnim.Idle(); // 入力終了 → Idle
+            }
+        }
 
         if (context.canceled)
         {
             _isRotate = false;
             _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+
+        
     }
 
 
@@ -156,7 +218,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     /// 発射入力
     /// </summary>
     /// <param name="context"></param>
-    public void OnShoot(InputAction.CallbackContext context)
+    public async void OnShoot(InputAction.CallbackContext context)
     {
         // ボタンが「押されたとき」だけ実行
         if (context.started && TankThePigGameStateManager.Instance.GameState == TankThePigGameStateManager.GameStateName.GAME)
@@ -165,7 +227,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             {
 
                 // 弾を生成（プレイヤーの位置 & 向き）
-                GameObject bullet = Instantiate(_bulletPrefab, transform.position + transform.up * 0.6f, transform.rotation);
+                GameObject bullet = Instantiate(_bulletPrefab, transform.position + -transform.right * 0.6f, transform.rotation);
 
                 _bulletInterval = _intervalTime;
 
@@ -187,7 +249,16 @@ public class TankThePigPlayerCtrl : MonoBehaviour
                 Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
                 if (bulletRb != null)
                 {
-                    bulletRb.velocity = transform.up * bulletSpeed;
+                    bulletRb.velocity = -transform.right * bulletSpeed;
+                }
+
+                if (_animalAnim != null)
+                {
+                    _animalAnim.Jump(); // ジャンプアニメーションも再生
+                    _isAnime = true;
+                    await UniTask.Delay(300);
+                    _animalAnim.Idle();
+                    _isAnime = false;
                 }
             }
         }
@@ -214,17 +285,22 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             TankThePigGameStateManager.Instance.GameOver(winner);
         }
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++) // 点滅回数の例
         {
-            if (_spriteRenderer != null)
+            // 透明（クリア）にする
+            foreach (var sr in _spriteRenderers)
             {
-                _spriteRenderer.sprite=_clearSprite;
+                if (sr != null) sr.sprite = _clearSprite;
             }
             await UniTask.Delay(300);
 
-            if (_spriteRenderer != null)
+            // 元のスプライトに戻す
+            for (int j = 0; j < _spriteRenderers.Length; j++)
             {
-                _spriteRenderer.sprite = _keepSprite;
+                if (_spriteRenderers[j] != null)
+                {
+                    _spriteRenderers[j].sprite = _originalSprites[j];
+                }
             }
             await UniTask.Delay(300);
         }

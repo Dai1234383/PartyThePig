@@ -415,10 +415,6 @@ MonoBehaviour:
     m_ActionName: JumpThePig/Jump[/DualShock4GamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 10802090-120f-47ea-b827-84e1e264c332
-    m_ActionName: JumpThePig/Pose[/Keyboard/escape,/DualShock4GamepadHID/start,/XInputControllerWindows/start]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 2386383d-c636-4efa-9808-07f22ad749f5
     m_ActionName: TankThePig/Rotate[/DualShock4GamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/DualShock4GamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right,/DualShock4GamepadHID/dpad/left,/XInputControllerWindows/dpad/left,/DualShock4GamepadHID/dpad/right,/XInputControllerWindows/dpad/right]
   - m_PersistentCalls:
