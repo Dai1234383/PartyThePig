@@ -119,6 +119,5 @@ public class PlayerData
         playerSprite = spritePrefab;
         playerColor = color;
 
-        score = 0;
     }
 }

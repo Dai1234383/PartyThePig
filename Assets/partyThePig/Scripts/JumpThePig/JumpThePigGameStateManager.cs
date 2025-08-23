@@ -56,6 +56,14 @@ public class JumpThePigGameStateManager : MonoBehaviour
     public void GameOver(string winnerName)
     {
         JumpThePigUIManager.Instance.GameOverUI(winnerName);
+        if (winnerName == "Player1")
+        {
+            PlayerManager.Instance.GetPlayerData(0).score += 1;
+        }
+        else if (winnerName == "Player2")
+        {
+            PlayerManager.Instance.GetPlayerData(1).score += 1;
+        }
         _gameState = GameStateName.OVER;
     }
 }
