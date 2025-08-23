@@ -16,11 +16,11 @@ public class JumpThePigDeadLineCtrl : MonoBehaviour
         {
             if (collision.gameObject == _player1)
             {
-                _winnerName = "PLAYER2";
+                _winnerName = "Player2";
             }
             else if (collision.gameObject == _player2)
             {
-                _winnerName = "PLAYER1";
+                _winnerName = "Player1";
             }
             JumpThePigGameStateManager.Instance.GameOver(_winnerName);
         }

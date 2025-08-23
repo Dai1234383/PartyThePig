@@ -62,6 +62,14 @@ public class MoneyThePigGameStateManager : MonoBehaviour
     public void GameOver(string winnerName = "")
     {
         MoneyThePigUIManager.Instance.GameOverUI(winnerName);
+        if (winnerName == "Player1")
+        {
+            PlayerManager.Instance.GetPlayerData(0).score += 1;
+        }
+        else if (winnerName == "Player2")
+        {
+            PlayerManager.Instance.GetPlayerData(1).score += 1;
+        }
         _gameState = GameStateName.OVER;
     }
 
