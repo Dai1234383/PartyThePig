@@ -17,28 +17,28 @@ MonoBehaviour:
     m_Hash: 55916349
     m_CategoryList:
     - m_Name: Body
-      m_Hash: 2073732236
+      m_Hash: 999990412
       m_Sprite: {fileID: 21300000, guid: 1c31f30f88a0f47c9b55bbbdfe45369a, type: 3}
     - m_Name: Cheek
-      m_Hash: -1424677743
+      m_Hash: 722805905
       m_Sprite: {fileID: 21300000, guid: 608225399284e430db1927e38ec9055f, type: 3}
     - m_Name: Ear1
-      m_Hash: -2008232630
+      m_Hash: 139251018
       m_Sprite: {fileID: 21300000, guid: b9965e36b85054582bc799a65b7569a6, type: 3}
     - m_Name: Ear2
       m_Hash: 289774832
       m_Sprite: {fileID: 21300000, guid: d8c122b7093604c6a954b02843d4474e, type: 3}
     - m_Name: Eye
-      m_Hash: 1245036881
+      m_Hash: 171295057
       m_Sprite: {fileID: 21300000, guid: ad0ef69a4dcc8415799ecdaccca771cb, type: 3}
     - m_Name: Head
       m_Hash: 130111906
       m_Sprite: {fileID: 21300000, guid: 5f48871f5a2a0436db82496f02413af1, type: 3}
     - m_Name: Leg1
-      m_Hash: -973550584
+      m_Hash: 100191240
       m_Sprite: {fileID: 21300000, guid: fd9c52628ec2c44f3a04b1a35d999f25, type: 3}
     - m_Name: Leg2
-      m_Hash: 1559338418
+      m_Hash: 485596594
       m_Sprite: {fileID: 21300000, guid: 7b1ca130ce072403e84e4fc956d6967e, type: 3}
     - m_Name: Leg3
       m_Hash: 737586468
@@ -50,5 +50,7 @@ MonoBehaviour:
       m_Hash: 593204815
       m_Sprite: {fileID: 21300000, guid: d2d4deebf6ab94ee18b1b9df00d31745, type: 3}
     - m_Name: Tail
-      m_Hash: -603645085
+      m_Hash: 470096739
       m_Sprite: {fileID: 21300000, guid: 6d87a4b19e37b4d8fba555a029131042, type: 3}
+  m_ModificationHash: 0
+  m_Version: 1

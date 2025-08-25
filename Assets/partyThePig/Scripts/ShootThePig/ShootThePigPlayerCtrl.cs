@@ -37,7 +37,22 @@ public class ShootThePigPlayerCtrl : MonoBehaviour
 
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            _spriteRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+            
+
+            var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite2;
+            if (playerPrefab != null)
+            {
+                
+
+                // Prefabをこのオブジェクトの子として生成
+                GameObject playerObj = Instantiate(playerPrefab, transform);
+
+                
+            }
+            else
+            {
+                Debug.LogWarning($"プレイヤーPrefabが設定されていません: {playerIndex}");
+            }
         }
         else
         {
