@@ -1,24 +1,26 @@
-using Cysharp.Threading.Tasks;
+ï»¿using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 
 public class MoneyThePigPlayerCtrl : MonoBehaviour
 {
-    [Header("‘€ìİ’è")]
+    [Header("æ“ä½œè¨­å®š")]
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
 
-    [Header("’n–Ê”»’è")]
+    [Header("åœ°é¢åˆ¤å®š")]
     [SerializeField] private int _groundLayerNum = 6;
 
-    [SerializeField] private int playerIndex; // è“®‚ÅƒCƒ“ƒXƒyƒNƒ^[‚©‚çİ’è
+    [Header("ã‚¸ãƒ£ãƒ³ãƒ—åŠ¹æœéŸ³")]
+    [SerializeField] private AudioClip jumpSE;
+    [SerializeField] private AudioSource seAudioSource;
+
+    [SerializeField] private int playerIndex; // æ‰‹å‹•ã§ã‚¤ãƒ³ã‚¹ãƒšã‚¯ã‚¿ãƒ¼ã‹ã‚‰è¨­å®š
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private InputActionAsset _action;
 
     private PlayerInput _playerInput;
-
-
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
     private bool _isGrounded = false;
@@ -31,14 +33,14 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
-        playerIndex = _playerInput.playerIndex;  // ©“®æ“¾‚É•ÏX
+        playerIndex = _playerInput.playerIndex;  // è‡ªå‹•å–å¾—
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
     {
-        // ƒXƒ^[ƒgˆÊ’u‚ğƒvƒŒƒCƒ„[ƒCƒ“ƒfƒbƒNƒX‚Åİ’è
+        // ã‚¹ã‚¿ãƒ¼ãƒˆä½ç½®ã‚’è¨­å®š
         transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
 
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
@@ -46,19 +48,15 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
             var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
             if (playerPrefab != null)
             {
-                // ‚·‚Å‚ÉƒIƒuƒWƒFƒNƒg‚ª‚ ‚éê‡‚ÍÁ‚µ‚Ä‚¨‚­
-                if (transform.childCount > 0)
+                // å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã‚¯ãƒªã‚¢
+                foreach (Transform child in transform)
                 {
-                    foreach (Transform child in transform)
-                    {
-                        Destroy(child.gameObject);
-                    }
+                    Destroy(child.gameObject);
                 }
 
-                // Prefab‚ğ‚±‚ÌƒIƒuƒWƒFƒNƒg‚Ìq‚Æ‚µ‚Ä¶¬
+                // ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®è¦‹ãŸç›®ã‚’ç”Ÿæˆ
                 GameObject playerObj = Instantiate(playerPrefab, transform);
 
-                // F‚ğİ’èiSpriteRenderer‚ª‚ ‚éê‡j
                 var renderer = playerObj.GetComponent<SpriteRenderer>();
                 if (renderer != null)
                 {
@@ -67,31 +65,31 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"ƒvƒŒƒCƒ„[Prefab‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ: {playerIndex}");
+                Debug.LogWarning($"ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼PrefabãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“: {playerIndex}");
             }
         }
         else
         {
-            Debug.LogWarning($"PlayerManager ‚ªŒ©‚Â‚©‚ç‚È‚¢‚©AplayerIndex ‚ª–³Œø‚Å‚·: {playerIndex}");
+            Debug.LogWarning($"PlayerManager ãŒè¦‹ã¤ã‹ã‚‰ãªã„ã‹ã€playerIndex ãŒç„¡åŠ¹ã§ã™: {playerIndex}");
         }
+
         _animalAnim = GetComponentInChildren<AnimalAnimation>();
 
-        // ‰‰ñ‚ÌÚ‘±ƒfƒoƒCƒX‚ğ•Û‘¶i–¢•Û‘¶‚Ì‚İj
+        // åˆå›ã®æ¥ç¶šãƒ‡ãƒã‚¤ã‚¹ã‚’ä¿å­˜
         var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
         if (currentDevice != null)
         {
             PlayerManager.Instance.AssignDevice(playerIndex, currentDevice);
         }
 
-        // •Û‘¶Ï‚İ‚ÌƒfƒoƒCƒX‚ğÄƒyƒAƒŠƒ“ƒOiƒV[ƒ“Ä“Ç‚İ‚İ‚È‚Çj
+        // ä¿å­˜æ¸ˆã¿ã®ãƒ‡ãƒã‚¤ã‚¹ã‚’å†ãƒšã‚¢ãƒªãƒ³ã‚°
         var savedDevice = PlayerManager.Instance.GetDevice(playerIndex);
         if (savedDevice != null)
         {
-            _playerInput.user.UnpairDevices(); // ƒfƒoƒCƒX‚¾‚¯‰ğœiƒ†[ƒU[‚Íc‚·j
-            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user); // ÄƒyƒAƒŠƒ“ƒO
+            _playerInput.user.UnpairDevices();
+            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user);
         }
     }
-
 
     private void FixedUpdate()
     {
@@ -109,10 +107,6 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// ˆÚ“®“ü—ÍiInvoke Unity Events ‚ÅŒÄ‚Î‚ê‚éj
-    /// </summary>
-    /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
         if (MoneyThePigGameStateManager.Instance.GameState != MoneyThePigGameStateManager.GameStateName.GAME) return;
@@ -123,19 +117,15 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
         {
             if (_moveInput != Vector2.zero)
             {
-                _animalAnim.Walk(); // “ü—Í‚ ‚è ¨ Walk
+                _animalAnim.Walk();
             }
             else if (context.canceled)
             {
-                _animalAnim.Idle(); // “ü—ÍI—¹ ¨ Idle
+                _animalAnim.Idle();
             }
         }
     }
 
-    /// <summary>
-    /// ƒWƒƒƒ“ƒv“ü—ÍiInvoke Unity Events ‚ÅŒÄ‚Î‚ê‚éj
-    /// </summary>
-    /// <param name="context"></param>
     public async void OnJump(InputAction.CallbackContext context)
     {
         if (MoneyThePigGameStateManager.Instance.GameState != MoneyThePigGameStateManager.GameStateName.GAME) return;
@@ -143,22 +133,24 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
         if (context.performed && _isGrounded)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+
+            // ğŸ”Š ã‚¸ãƒ£ãƒ³ãƒ—åŠ¹æœéŸ³
+            if (seAudioSource != null && jumpSE != null)
+            {
+                seAudioSource.PlayOneShot(jumpSE);
+            }
+
             if (_animalAnim != null)
             {
-                _animalAnim.Jump(); // ƒWƒƒƒ“ƒvƒAƒjƒ[ƒVƒ‡ƒ“‚àÄ¶
+                _animalAnim.Jump();
                 _isAnime = true;
                 await UniTask.Delay(1000);
                 _animalAnim.Idle();
                 _isAnime = false;
             }
         }
-
     }
 
-    /// <summary>
-    /// Ú’n”»’è
-    /// </summary>
-    /// <param name="collision"></param>
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.layer == _groundLayerNum)
@@ -167,10 +159,6 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Ú’n”»’è
-    /// </summary>
-    /// <param name="collision"></param>
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.layer == _groundLayerNum)

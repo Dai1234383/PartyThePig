@@ -1,4 +1,4 @@
-using Cysharp.Threading.Tasks;
+ï»¿using Cysharp.Threading.Tasks;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,53 +6,50 @@ using UnityEngine.InputSystem.Users;
 
 public class TankThePigPlayerCtrl : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed = 5f;     //ˆÚ“®‘¬“x
-    [SerializeField] private float _rotateSpeed = 200f; //‰ñ“]‘¬“x
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼è¨­å®š")]
+    [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _rotateSpeed = 200f;
     [SerializeField] private int _maxLife = 3;
+    [SerializeField] private int playerIndex;
 
-    [SerializeField] private int playerIndex; // è“®‚ÅƒCƒ“ƒXƒyƒNƒ^[‚©‚çİ’è
-    [SerializeField] private SpriteRenderer[] _spriteRenderers;    //‰æ‘œ
+    [Header("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆå‚ç…§")]
+    [SerializeField] private SpriteRenderer[] _spriteRenderers;
     [SerializeField] private InputActionAsset _action;
-
-
-    [SerializeField] private GameObject _bulletPrefab;  //’e‚ÌPrefab
-    [SerializeField] private float bulletSpeed = 10f;   //’e‚Ì‘¬“x
-
-    [SerializeField] private int _intervalTime = 2000;
+    [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Sprite _clearSprite;
 
+    [Header("å¼¾ãƒ»ã‚µã‚¦ãƒ³ãƒ‰")]
+    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private int _intervalTime = 2000;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _shootClip;
 
+    private Rigidbody2D _rb;
     private PlayerInput _playerInput;
+    private Vector2 _moveInput;
+    private float _rotateInput;
 
+    private bool _isRotate = false;
+    private bool _isMove = false;
+    private bool _isDamageInterval = false;
     private int _currentLife;
-
-    private Rigidbody2D _rb;    //RigidBody
-    private Vector2 _moveInput; //ˆÚ“®
-    private float _rotateInput;  // ‰ñ“]“ü—Í‚ğ•Û‘¶‚·‚é•Ï”
-
-    private bool _isRotate = false; //‰ñ“]‚µ‚Ä‚¢‚é‚©
-    private bool _isMove = false;   //ˆÚ“®‚µ‚Ä‚¢‚é‚©
-
-    private bool _isDamageInterval = false;   //–³“GŠÔ‚©
-
     private int _bulletInterval;
-    private Sprite _keepSprite;
 
     private AnimalAnimation _animalAnim;
     private bool _isAnime = false;
 
-    private Sprite[] _originalSprites; // Šeq‚ÌŒ³ƒXƒvƒ‰ƒCƒg‚ğ•Û‘¶‚µ‚Ä‚¨‚­
+    private Sprite[] _originalSprites;
 
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
-        playerIndex = _playerInput.playerIndex;  // ©“®æ“¾‚É•ÏX
+        playerIndex = _playerInput.playerIndex;
         _rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
-        // ƒXƒ^[ƒgˆÊ’u‚ğƒvƒŒƒCƒ„[ƒCƒ“ƒfƒbƒNƒX‚Åİ’è
+        // ã‚¹ã‚¿ãƒ¼ãƒˆä½ç½®ã‚’ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã§è¨­å®š
         transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
 
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
@@ -60,7 +57,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
             if (playerPrefab != null)
             {
-                // ‚·‚Å‚ÉƒIƒuƒWƒFƒNƒg‚ª‚ ‚éê‡‚ÍÁ‚µ‚Ä‚¨‚­
+                // ã™ã§ã«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒã‚ã‚‹å ´åˆã¯æ¶ˆã—ã¦ãŠã
                 if (transform.childCount > 0)
                 {
                     foreach (Transform child in transform)
@@ -69,10 +66,10 @@ public class TankThePigPlayerCtrl : MonoBehaviour
                     }
                 }
 
-                // Prefab‚ğ‚±‚ÌƒIƒuƒWƒFƒNƒg‚Ìq‚Æ‚µ‚Ä¶¬
+                // Prefabã‚’ã“ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å­ã¨ã—ã¦ç”Ÿæˆ
                 GameObject playerObj = Instantiate(playerPrefab, transform);
 
-                // F‚ğİ’èiSpriteRenderer‚ª‚ ‚éê‡j
+                // è‰²ã‚’è¨­å®šï¼ˆSpriteRendererãŒã‚ã‚‹å ´åˆï¼‰
                 var renderer = playerObj.GetComponent<SpriteRenderer>();
                 if (renderer != null)
                 {
@@ -81,34 +78,34 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"ƒvƒŒƒCƒ„[Prefab‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ: {playerIndex}");
+                Debug.LogWarning($"ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼PrefabãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“: {playerIndex}");
             }
         }
         else
         {
-            Debug.LogWarning($"PlayerManager ‚ªŒ©‚Â‚©‚ç‚È‚¢‚©AplayerIndex ‚ª–³Œø‚Å‚·: {playerIndex}");
+            Debug.LogWarning($"PlayerManager ãŒè¦‹ã¤ã‹ã‚‰ãªã„ã‹ã€playerIndex ãŒç„¡åŠ¹ã§ã™: {playerIndex}");
         }
         _animalAnim = GetComponentInChildren<AnimalAnimation>();
 
         _spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true)
             .Where(sr => sr.gameObject != this.gameObject)
             .ToArray();
-        // Še SpriteRenderer ‚ª‚Á‚Ä‚¢‚éŒ³ƒXƒvƒ‰ƒCƒg‚ğ•Û‘¶
+        // å„ SpriteRenderer ãŒæŒã£ã¦ã„ã‚‹å…ƒã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚’ä¿å­˜
         _originalSprites = _spriteRenderers.Select(sr => sr.sprite).ToArray();
 
-        // ‰‰ñ‚ÌÚ‘±ƒfƒoƒCƒX‚ğ•Û‘¶i–¢•Û‘¶‚Ì‚İj
+        // åˆå›ã®æ¥ç¶šãƒ‡ãƒã‚¤ã‚¹ã‚’ä¿å­˜ï¼ˆæœªä¿å­˜æ™‚ã®ã¿ï¼‰
         var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
         if (currentDevice != null)
         {
             PlayerManager.Instance.AssignDevice(playerIndex, currentDevice);
         }
 
-        // •Û‘¶Ï‚İ‚ÌƒfƒoƒCƒX‚ğÄƒyƒAƒŠƒ“ƒOiƒV[ƒ“Ä“Ç‚İ‚İ‚È‚Çj
+        // ä¿å­˜æ¸ˆã¿ã®ãƒ‡ãƒã‚¤ã‚¹ã‚’å†ãƒšã‚¢ãƒªãƒ³ã‚°ï¼ˆã‚·ãƒ¼ãƒ³å†èª­ã¿è¾¼ã¿æ™‚ãªã©ï¼‰
         var savedDevice = PlayerManager.Instance.GetDevice(playerIndex);
         if (savedDevice != null)
         {
-            _playerInput.user.UnpairDevices(); // ƒfƒoƒCƒX‚¾‚¯‰ğœiƒ†[ƒU[‚Íc‚·j
-            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user); // ÄƒyƒAƒŠƒ“ƒO
+            _playerInput.user.UnpairDevices(); // ãƒ‡ãƒã‚¤ã‚¹ã ã‘è§£é™¤ï¼ˆãƒ¦ãƒ¼ã‚¶ãƒ¼ã¯æ®‹ã™ï¼‰
+            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user); // å†ãƒšã‚¢ãƒªãƒ³ã‚°
         }
 
         _currentLife = _maxLife;
@@ -116,39 +113,23 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (TankThePigGameStateManager.Instance.GameState == TankThePigGameStateManager.GameStateName.OVER)
+        if (TankThePigGameStateManager.Instance.GameState != TankThePigGameStateManager.GameStateName.GAME) return;
+
+        Vector2 moveDir = -transform.right * _moveInput.y;
+        _rb.velocity = moveDir * _moveSpeed;
+
+        if (Mathf.Abs(_rotateInput) > 0.1f)
         {
-            _playerInput.actions = _action;
-            _playerInput.SwitchCurrentActionMap("UI");
+            _rb.MoveRotation(_rb.rotation + -_rotateInput * _rotateSpeed * Time.fixedDeltaTime);
         }
 
-        if (TankThePigGameStateManager.Instance.GameState == TankThePigGameStateManager.GameStateName.GAME)
-        {
-
-            // ˆÚ“®ˆ—iŒü‚¢‚Ä‚¢‚é•ûŒü‚ÉˆÚ“®j
-            Vector2 moveDir = -transform.right * _moveInput.y; // ‘OŒã•ûŒü
-            _rb.velocity = moveDir * _moveSpeed;
-
-
-            // ‰ñ“]
-            if (Mathf.Abs(_rotateInput) > 0.1f)
-            {
-                _rb.MoveRotation(_rb.rotation + -_rotateInput * _rotateSpeed * Time.fixedDeltaTime);
-            }
-
-            _bulletInterval--;
-        }
+        _bulletInterval--;
     }
 
-    /// <summary>
-    /// ˆÚ“®“ü—ÍiInvoke Unity Events ‚ÅŒÄ‚Î‚ê‚éj
-    /// </summary>
-    /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
         if (TankThePigGameStateManager.Instance.GameState != TankThePigGameStateManager.GameStateName.GAME) return;
 
-        // ˆÚ“®‚ğˆê“I‚É—LŒø‰»
         _rb.constraints = RigidbodyConstraints2D.None;
         if (!_isRotate)
         {
@@ -164,25 +145,15 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
         if (_animalAnim != null && !_isAnime)
         {
-            if (_moveInput != Vector2.zero)
-            {
-                _animalAnim.Walk(); // “ü—Í‚ ‚è ¨ Walk
-            }
-            else if (context.canceled)
-            {
-                _animalAnim.Idle(); // “ü—ÍI—¹ ¨ Idle
-            }
+            if (_moveInput != Vector2.zero) _animalAnim.Walk();
+            else if (context.canceled) _animalAnim.Idle();
         }
     }
 
-    /// <summary>
-    /// ‰ñ“]“ü—ÍiInvoke Unity Events ‚ÅŒÄ‚Î‚ê‚éj
-    /// </summary>
     public void OnRotate(InputAction.CallbackContext context)
     {
         if (TankThePigGameStateManager.Instance.GameState != TankThePigGameStateManager.GameStateName.GAME) return;
 
-        // ‰ñ“]‚ğˆê“I‚É—LŒø‰»
         _rb.constraints = RigidbodyConstraints2D.None;
 
         if (!_isMove)
@@ -190,17 +161,11 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             _isRotate = true;
             _rotateInput = context.ReadValue<float>();
         }
-        
+
         if (_animalAnim != null && !_isAnime)
         {
-            if (_moveInput != Vector2.zero)
-            {
-                _animalAnim.Walk(); // “ü—Í‚ ‚è ¨ Walk
-            }
-            else if (context.canceled)
-            {
-                _animalAnim.Idle(); // “ü—ÍI—¹ ¨ Idle
-            }
+            if (_moveInput != Vector2.zero) _animalAnim.Walk();
+            else if (context.canceled) _animalAnim.Idle();
         }
 
         if (context.canceled)
@@ -208,53 +173,35 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             _isRotate = false;
             _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-
-        
     }
 
-
-
-    /// <summary>
-    /// ”­Ë“ü—Í
-    /// </summary>
-    /// <param name="context"></param>
     public async void OnShoot(InputAction.CallbackContext context)
     {
-        // ƒ{ƒ^ƒ“‚ªu‰Ÿ‚³‚ê‚½‚Æ‚«v‚¾‚¯Às
         if (context.started && TankThePigGameStateManager.Instance.GameState == TankThePigGameStateManager.GameStateName.GAME)
         {
             if (_bulletInterval <= 0)
             {
-
-                // ’e‚ğ¶¬iƒvƒŒƒCƒ„[‚ÌˆÊ’u & Œü‚«j
                 GameObject bullet = Instantiate(_bulletPrefab, transform.position + -transform.right * 0.6f, transform.rotation);
-
                 _bulletInterval = _intervalTime;
 
-                // BulletController ‚É”­ËÒî•ñ‚ğ“n‚·
                 TankThePigBalletCtrl bulletCtrl = bullet.GetComponent<TankThePigBalletCtrl>();
-                if (bulletCtrl != null)
-                {
-                    bulletCtrl.shooter = this.gameObject;
-                }
+                if (bulletCtrl != null) bulletCtrl.shooter = this.gameObject;
 
-                // ’e‚ÌF‚ğƒvƒŒƒCƒ„[ƒJƒ‰[‚Éİ’èiSpriteRenderer ‚ª•t‚¢‚Ä‚¢‚é‘O’ñj
                 SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
                 if (bulletRenderer != null && PlayerManager.Instance != null)
-                {
                     bulletRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
-                }
 
-                // ’e‚É Rigidbody2D ‚ª‚ ‚é‚È‚çA‘O•û‚É—Í‚ğ‰Á‚¦‚é
                 Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
                 if (bulletRb != null)
-                {
                     bulletRb.velocity = -transform.right * bulletSpeed;
-                }
+
+                // âœ… åŠ¹æœéŸ³ã‚’å†ç”Ÿ
+                if (_audioSource != null && _shootClip != null)
+                    _audioSource.PlayOneShot(_shootClip);
 
                 if (_animalAnim != null)
                 {
-                    _animalAnim.Jump(); // ƒWƒƒƒ“ƒvƒAƒjƒ[ƒVƒ‡ƒ“‚àÄ¶
+                    _animalAnim.Jump();
                     _isAnime = true;
                     await UniTask.Delay(300);
                     _animalAnim.Idle();
@@ -266,10 +213,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
     public void ReceiveBulletHit()
     {
-        if (_isDamageInterval == false)
-        {
-            HitBullet();
-        }
+        if (!_isDamageInterval) HitBullet();
     }
 
     private async void HitBullet()
@@ -285,23 +229,15 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             TankThePigGameStateManager.Instance.GameOver(winner);
         }
 
-        for (int i = 0; i < 3; i++) // “_–Å‰ñ”‚Ì—á
+        for (int i = 0; i < 3; i++)
         {
-            // “§–¾iƒNƒŠƒAj‚É‚·‚é
             foreach (var sr in _spriteRenderers)
-            {
                 if (sr != null) sr.sprite = _clearSprite;
-            }
             await UniTask.Delay(300);
 
-            // Œ³‚ÌƒXƒvƒ‰ƒCƒg‚É–ß‚·
             for (int j = 0; j < _spriteRenderers.Length; j++)
-            {
                 if (_spriteRenderers[j] != null)
-                {
                     _spriteRenderers[j].sprite = _originalSprites[j];
-                }
-            }
             await UniTask.Delay(300);
         }
 

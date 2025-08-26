@@ -1,16 +1,20 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [System.Serializable]
 public class EscapeThePigItemData
 {
     public GameObject prefab;
     [Range(0f, 100f)]
-    public float spawnRate; // oŒ»—¦i‡Œv100‚É‚È‚é•K—v‚È‚µj
+    public float spawnRate;
 }
 
 public class EscapeThePigItemBox : MonoBehaviour
 {
     [SerializeField] private EscapeThePigItemData[] itemTable;
+
+    [Header("åŠ¹æœéŸ³")]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _getItemClip;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,6 +26,12 @@ public class EscapeThePigItemBox : MonoBehaviour
         GameObject selectedItem = GetRandomItem();
         if (selectedItem != null)
         {
+            // ğŸµ åŠ¹æœéŸ³ã‚’é³´ã‚‰ã™
+            if (_audioSource != null && _getItemClip != null)
+            {
+                _audioSource.PlayOneShot(_getItemClip);
+            }
+
             itemSystem.ReceiveItem(selectedItem);
             Destroy(gameObject);
         }
@@ -48,3 +58,4 @@ public class EscapeThePigItemBox : MonoBehaviour
         return null;
     }
 }
+

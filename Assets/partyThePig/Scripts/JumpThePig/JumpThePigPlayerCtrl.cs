@@ -1,22 +1,26 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 using Cysharp.Threading.Tasks;
 
 /// <summary>
-/// ƒvƒŒƒCƒ„[‚Ì‘€ìƒXƒNƒŠƒvƒgiInputSystem + Rigidbody2D‚ÅˆÚ“®‚ÆƒWƒƒƒ“ƒvj
+/// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ“ä½œã‚¹ã‚¯ãƒªãƒ—ãƒˆï¼ˆInputSystem + Rigidbody2Dã§ç§»å‹•ã¨ã‚¸ãƒ£ãƒ³ãƒ—ï¼‰
 /// </summary>
 public class JumpThePigPlayerCtrl : MonoBehaviour
 {
-    [Header("ƒvƒŒƒCƒ„[İ’è")]
-    [SerializeField] private int playerIndex; // 0 = ¶, 1 = ‰EiƒV[ƒ“‚É‚ ‚ç‚©‚¶‚ßİ’èj
+    [Header("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼è¨­å®š")]
+    [SerializeField] private int playerIndex;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private GameObject _collision;
     [SerializeField] private InputActionAsset _action;
 
-    [Header("‘€ìİ’è")]
+    [Header("æ“ä½œè¨­å®š")]
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private float _jumpForce = 10f;
+
+    [Header("ã‚¸ãƒ£ãƒ³ãƒ—åŠ¹æœéŸ³")] // ğŸ‘ˆ åŠ¹æœéŸ³ç”¨ã®è¨­å®šã‚’è¿½åŠ 
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioClip jumpSE;
 
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
@@ -31,26 +35,18 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _playerInput = GetComponent<PlayerInput>();
         _jumpCollision = _collision.GetComponent<JumpThePigCollision>();
-
     }
 
     private void Start()
     {
-        // ƒXƒ^[ƒgˆÊ’u‚ğƒvƒŒƒCƒ„[ƒCƒ“ƒfƒbƒNƒX‚Åİ’è
         transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
 
-        // F‚ğƒvƒŒƒCƒ„[İ’è‚©‚ç“K—p
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
             var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
             if (playerPrefab != null)
             {
-
-
-                // Prefab‚ğ‚±‚ÌƒIƒuƒWƒFƒNƒg‚Ìq‚Æ‚µ‚Ä¶¬
                 GameObject playerObj = Instantiate(playerPrefab, transform);
-
-                // F‚ğİ’èiSpriteRenderer‚ª‚ ‚éê‡j
                 var renderer = playerObj.GetComponent<SpriteRenderer>();
                 if (renderer != null)
                 {
@@ -59,28 +55,27 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"ƒvƒŒƒCƒ„[Prefab‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ: {playerIndex}");
+                Debug.LogWarning($"ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼PrefabãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“: {playerIndex}");
             }
         }
         else
         {
-            Debug.LogWarning($"PlayerManager ‚ªŒ©‚Â‚©‚ç‚È‚¢‚©AplayerIndex ‚ª–³Œø‚Å‚·: {playerIndex}");
+            Debug.LogWarning($"PlayerManager ãŒè¦‹ã¤ã‹ã‚‰ãªã„ã‹ã€playerIndex ãŒç„¡åŠ¹ã§ã™: {playerIndex}");
         }
+
         _animalAnim = GetComponentInChildren<AnimalAnimation>();
 
-        // ‰‰ñ‚ÌÚ‘±ƒfƒoƒCƒX‚ğ•Û‘¶i–¢•Û‘¶‚Ì‚İj
         var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
         if (currentDevice != null)
         {
             PlayerManager.Instance.AssignDevice(playerIndex, currentDevice);
         }
 
-        // •Û‘¶Ï‚İ‚ÌƒfƒoƒCƒX‚ğÄƒyƒAƒŠƒ“ƒOiƒV[ƒ“Ä“Ç‚İ‚İ‚È‚Çj
         var savedDevice = PlayerManager.Instance.GetDevice(playerIndex);
         if (savedDevice != null)
         {
-            _playerInput.user.UnpairDevices(); // ƒfƒoƒCƒX‚¾‚¯‰ğœiƒ†[ƒU[‚Íc‚·j
-            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user); // ÄƒyƒAƒŠƒ“ƒO
+            _playerInput.user.UnpairDevices();
+            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user);
         }
     }
 
@@ -101,9 +96,6 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
         _rb.velocity = velocity;
     }
 
-    /// <summary>
-    /// ˆÚ“®“ü—ÍiInvoke Unity Events Œo—Rj
-    /// </summary>
     public void OnMove(InputAction.CallbackContext context)
     {
         if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME) return;
@@ -113,29 +105,33 @@ public class JumpThePigPlayerCtrl : MonoBehaviour
         {
             if (_moveInput != Vector2.zero)
             {
-                _animalAnim.Walk(); // “ü—Í‚ ‚è ¨ Walk
+                _animalAnim.Walk();
             }
             else if (context.canceled)
             {
-                _animalAnim.Idle(); // “ü—ÍI—¹ ¨ Idle
+                _animalAnim.Idle();
             }
         }
     }
 
-    /// <summary>
-    /// ƒWƒƒƒ“ƒv“ü—ÍiInvoke Unity Events Œo—Rj
-    /// </summary>
     public async void OnJump(InputAction.CallbackContext context)
     {
         if (JumpThePigGameStateManager.Instance.GameState != JumpThePigGameStateManager.GameStateName.GAME) return;
 
         if (context.performed && _jumpCollision.IsGrounded)
         {
+            // ã‚¸ãƒ£ãƒ³ãƒ—å‡¦ç†
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+
+            // ğŸ”Š åŠ¹æœéŸ³å†ç”Ÿï¼ˆè¿½åŠ ï¼‰
+            if (sfxSource != null && jumpSE != null)
+            {
+                sfxSource.PlayOneShot(jumpSE);
+            }
 
             if (_animalAnim != null)
             {
-                _animalAnim.Jump(); // ƒWƒƒƒ“ƒvƒAƒjƒ[ƒVƒ‡ƒ“‚àÄ¶
+                _animalAnim.Jump();
                 _isAnime = true;
                 await UniTask.Delay(1000);
                 _animalAnim.Idle();
