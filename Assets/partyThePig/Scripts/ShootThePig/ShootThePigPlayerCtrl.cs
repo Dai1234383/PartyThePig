@@ -1,80 +1,67 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 
 public class ShootThePigPlayerCtrl : MonoBehaviour
 {
-    [Header("‘€ìİ’è")]
+    [Header("æ“ä½œè¨­å®š")]
     [SerializeField] private float _moveSpeed = 5f;
 
+    [Header("ã‚ªãƒ¼ãƒ‡ã‚£ã‚ªè¨­å®š")]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _shootClip;
 
-
-    [SerializeField] private int playerIndex; // è“®‚ÅƒCƒ“ƒXƒyƒNƒ^[‚©‚çİ’è
+    [SerializeField] private int playerIndex;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private InputActionAsset _action;
 
     private PlayerInput _playerInput;
-
-
     private Rigidbody2D _rb;
     private Vector2 _moveInput;
-
-
 
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
-        playerIndex = _playerInput.playerIndex;  // ©“®æ“¾‚É•ÏX
+        playerIndex = _playerInput.playerIndex;
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
     {
-        // ƒXƒ^[ƒgˆÊ’u‚ğƒvƒŒƒCƒ„[ƒCƒ“ƒfƒbƒNƒX‚Åİ’è
         transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
 
         if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
         {
-            
-
             var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite2;
             if (playerPrefab != null)
             {
-                
-
-                // Prefab‚ğ‚±‚ÌƒIƒuƒWƒFƒNƒg‚Ìq‚Æ‚µ‚Ä¶¬
                 GameObject playerObj = Instantiate(playerPrefab, transform);
-
-                
             }
             else
             {
-                Debug.LogWarning($"ƒvƒŒƒCƒ„[Prefab‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ: {playerIndex}");
+                Debug.LogWarning($"ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼PrefabãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“: {playerIndex}");
             }
         }
         else
         {
-            Debug.LogWarning($"PlayerManager ‚ªŒ©‚Â‚©‚ç‚È‚¢‚©AplayerIndex ‚ª–³Œø‚Å‚·: {playerIndex}");
+            Debug.LogWarning($"PlayerManager ãŒè¦‹ã¤ã‹ã‚‰ãªã„ã‹ã€playerIndex ãŒç„¡åŠ¹ã§ã™: {playerIndex}");
         }
 
-        // ‰‰ñ‚ÌÚ‘±ƒfƒoƒCƒX‚ğ•Û‘¶i–¢•Û‘¶‚Ì‚İj
         var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
         if (currentDevice != null)
         {
             PlayerManager.Instance.AssignDevice(playerIndex, currentDevice);
         }
 
-        // •Û‘¶Ï‚İ‚ÌƒfƒoƒCƒX‚ğÄƒyƒAƒŠƒ“ƒOiƒV[ƒ“Ä“Ç‚İ‚İ‚È‚Çj
         var savedDevice = PlayerManager.Instance.GetDevice(playerIndex);
         if (savedDevice != null)
         {
-            _playerInput.user.UnpairDevices(); // ƒfƒoƒCƒX‚¾‚¯‰ğœiƒ†[ƒU[‚Íc‚·j
-            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user); // ÄƒyƒAƒŠƒ“ƒO
+            _playerInput.user.UnpairDevices();
+            InputUser.PerformPairingWithDevice(savedDevice, _playerInput.user);
         }
     }
-
 
     private void FixedUpdate()
     {
@@ -93,50 +80,41 @@ public class ShootThePigPlayerCtrl : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// ˆÚ“®“ü—ÍiInvoke Unity Events ‚ÅŒÄ‚Î‚ê‚éj
-    /// </summary>
-    /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
         if (ShootThePigGameStateManager.Instance.GameState != ShootThePigGameStateManager.GameStateName.GAME) return;
-
         _moveInput = context.ReadValue<Vector2>();
     }
 
-
-    /// <summary>
-    /// ËŒ‚“ü—Í
-    /// </summary>
-    /// <param name="context"></param>
     public void OnShoot(InputAction.CallbackContext context)
     {
         if (ShootThePigGameStateManager.Instance.GameState != ShootThePigGameStateManager.GameStateName.GAME) return;
+
         if (context.performed)
         {
             Shoot();
         }
     }
 
-    /// <summary>
-    /// d‚È‚Á‚Ä‚¢‚é Target ‚ğUŒ‚
-    /// </summary>
     private void Shoot()
     {
-        // ƒvƒŒƒCƒ„[‚ÌƒRƒ‰ƒCƒ_[‚ğæ“¾
+        // ğŸ”Š åŠ¹æœéŸ³å†ç”Ÿ
+        if (_audioSource != null && _shootClip != null)
+        {
+            _audioSource.PlayOneShot(_shootClip);
+        }
+
         Collider2D myCollider = GetComponent<Collider2D>();
         if (myCollider == null) return;
 
-        // d‚È‚Á‚Ä‚¢‚éƒRƒ‰ƒCƒ_[‚ÌƒŠƒXƒg‚ğŠi”[
         ContactFilter2D filter = new ContactFilter2D();
-        filter.useTriggers = true; // Trigger‚à‘ÎÛ‚É‚µ‚½‚¢ê‡
-        filter.SetLayerMask(Physics2D.DefaultRaycastLayers); // •K—v‚È‚ç§ŒÀ‰Â
+        filter.useTriggers = true;
+        filter.SetLayerMask(Physics2D.DefaultRaycastLayers);
         filter.useLayerMask = true;
 
         List<Collider2D> results = new List<Collider2D>();
         myCollider.OverlapCollider(filter, results);
 
-        // d‚È‚Á‚Ä‚¢‚é Target ‚ğ’²‚×‚Ä Hit()
         foreach (var hit in results)
         {
             if (hit.CompareTag("Target"))
@@ -149,5 +127,4 @@ public class ShootThePigPlayerCtrl : MonoBehaviour
             }
         }
     }
-
 }
