@@ -15,6 +15,9 @@ public class MoneyThePigBom : MonoBehaviour
     [SerializeField] private AudioClip _explosionSE;         // 爆発効果音
     [SerializeField] private AudioSource _audioSource;       // 効果音を鳴らすAudioSource
 
+    [Header("エフェクト")]
+    [SerializeField] private GameObject _effectObject;
+
     private void FixedUpdate()
     {
         if (MoneyThePigGameStateManager.Instance.GameState == MoneyThePigGameStateManager.GameStateName.OVER)
@@ -69,10 +72,18 @@ public class MoneyThePigBom : MonoBehaviour
                 AudioSource.PlayClipAtPoint(_explosionSE, transform.position);
             }
         }
-
+        SpawnEffect();
         _bomArea.transform.DOScale(new Vector2(_maxBomAreaSize, _maxBomAreaSize), _bomberTime)
             .SetLink(gameObject)
             .SetEase(Ease.Linear)
             .OnComplete(() => Destroy(gameObject));
+    }
+
+    private void SpawnEffect()
+    {
+        if (_effectObject != null)
+        {
+            Instantiate(_effectObject, transform.position, Quaternion.identity);
+        }
     }
 }

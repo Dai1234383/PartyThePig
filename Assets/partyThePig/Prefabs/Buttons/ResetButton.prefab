@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8106363981657939717, guid: f20afda186e62b3429ff577258533062, type: 3}
       propertyPath: m_text
-      value: ScoreReset
+      value: "\u30B9\u30B3\u30A2\u30EA\u30BB\u30C3\u30C8\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

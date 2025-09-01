@@ -273,6 +273,7 @@ MonoBehaviour:
   _bomArea: {fileID: 5964740772835493000}
   _explosionSE: {fileID: 8300000, guid: aea297455045cb94d82ca9946149d622, type: 3}
   _audioSource: {fileID: 3803321456016748250}
+  _effectObject: {fileID: 8367907410985086596, guid: b6dc67ddc621f564c9cf23352faaa50e, type: 3}
 --- !u!82 &3803321456016748250
 AudioSource:
   m_ObjectHideFlags: 0
@@ -579,7 +580,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.25490198}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

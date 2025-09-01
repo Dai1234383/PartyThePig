@@ -102,6 +102,7 @@ MonoBehaviour:
   _groundLayerNum: 6
   _speed: 15
   _maxBounceCount: 3
+  _effectObject: {fileID: 8367907410985086596, guid: 0b493b97a8e419d46903c1b023460740, type: 3}
   shooter: {fileID: 0}
 --- !u!58 &-2188190164931433695
 CircleCollider2D:
