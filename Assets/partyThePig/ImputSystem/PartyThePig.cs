@@ -585,7 +585,7 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""306aa1c4-f6b1-4b44-a0a3-cd2a50b3a1ed"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -732,7 +732,7 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9fed2a3e-a74d-4655-becc-2ca89e519f0a"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1004,7 +1004,7 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d76c003e-12f0-4cdf-9b5b-0af1276b2f08"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

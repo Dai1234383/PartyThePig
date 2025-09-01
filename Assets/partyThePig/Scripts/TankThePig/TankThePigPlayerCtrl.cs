@@ -113,6 +113,12 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (TankThePigGameStateManager.Instance.GameState == TankThePigGameStateManager.GameStateName.OVER)
+        {
+            _playerInput.actions = _action;
+            _playerInput.SwitchCurrentActionMap("UI");
+        }
+
         if (TankThePigGameStateManager.Instance.GameState != TankThePigGameStateManager.GameStateName.GAME) return;
 
         Vector2 moveDir = -transform.right * _moveInput.y;

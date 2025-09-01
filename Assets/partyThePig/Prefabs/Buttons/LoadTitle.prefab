@@ -122,7 +122,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8106363981657939717, guid: f20afda186e62b3429ff577258533062, type: 3}
       propertyPath: m_text
-      value: ToTitle
+      value: "\u30BF\u30A4\u30C8\u30EB\u306B\u623B\u308B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109215201688202544, guid: f20afda186e62b3429ff577258533062, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109215201688202544, guid: f20afda186e62b3429ff577258533062, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

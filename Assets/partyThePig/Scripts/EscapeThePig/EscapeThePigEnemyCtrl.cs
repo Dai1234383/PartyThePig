@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class EscapeThePigEnemyCtrl : MonoBehaviour
 {
@@ -12,10 +13,11 @@ public class EscapeThePigEnemyCtrl : MonoBehaviour
     private Rigidbody2D _rb;
 
     private bool _isStopped = false; // TrapÇ»Ç«Ç≈í‚é~íÜÇ©Ç«Ç§Ç©
-
+    private AnimalAnimation _animalAnim;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _animalAnim = GetComponentInChildren<AnimalAnimation>();
     }
 
     private void Start()
@@ -46,6 +48,15 @@ public class EscapeThePigEnemyCtrl : MonoBehaviour
         else
         {
             _rb.velocity = Vector2.zero;
+        }
+
+        if (_rb.velocity != Vector2.zero)
+        {
+            _animalAnim.Walk(); // ì¸óÕÇ†ÇË Å® Walk
+        }
+        else
+        {
+            _animalAnim.Idle(); // ì¸óÕèIóπ Å® Idle
         }
     }
 

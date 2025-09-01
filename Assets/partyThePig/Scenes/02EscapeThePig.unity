@@ -1968,6 +1968,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2954818362233166171, guid: 1eef1427d55970f45ada492156e0715d, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954818362233166171, guid: 1eef1427d55970f45ada492156e0715d, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954818362233166171, guid: 1eef1427d55970f45ada492156e0715d, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2954818362233166171, guid: 1eef1427d55970f45ada492156e0715d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4955828452799251958, guid: 1eef1427d55970f45ada492156e0715d, type: 3}
       propertyPath: m_Name
       value: Enemy

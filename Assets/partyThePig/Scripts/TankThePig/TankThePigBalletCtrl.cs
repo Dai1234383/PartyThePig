@@ -7,6 +7,8 @@ public class TankThePigBalletCtrl : MonoBehaviour
     [SerializeField] private float _speed = 10f;
     [SerializeField] private int _maxBounceCount = 3;
 
+    [SerializeField] private GameObject _effectObject;
+
     public GameObject shooter; // íeÇåÇÇ¡ÇΩÉvÉåÉCÉÑÅ[
 
     private Rigidbody2D _rb;
@@ -30,6 +32,7 @@ public class TankThePigBalletCtrl : MonoBehaviour
         {
             if (_currentBounceCount != 0)
             {
+                SpawnEffect();
                 Destroy(gameObject);
             }
             return;
@@ -40,6 +43,7 @@ public class TankThePigBalletCtrl : MonoBehaviour
         if (hitPlayer != null)
         {
             hitPlayer.ReceiveBulletHit();
+            SpawnEffect();
             Destroy(gameObject);
             return;
         }
@@ -50,13 +54,23 @@ public class TankThePigBalletCtrl : MonoBehaviour
             _currentBounceCount++;
             if (_currentBounceCount >= _maxBounceCount)
             {
+                SpawnEffect();
                 Destroy(gameObject);
             }
         }
         else
         {
             // ëºÇÃÇ‡ÇÃÇ…ìñÇΩÇ¡ÇΩÇÁçÌèú
+            SpawnEffect();
             Destroy(gameObject);
+        }
+    }
+
+    private void SpawnEffect()
+    {
+        if (_effectObject != null)
+        {
+            Instantiate(_effectObject, transform.position, Quaternion.identity);
         }
     }
 }
