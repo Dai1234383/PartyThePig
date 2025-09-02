@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3bdf0509fa024cbdc4853e98825f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmManagerObject: {fileID: 0}
+  bgmManagerObject: {fileID: 369985257}
   buttonText: {fileID: 0}
 --- !u!114 &2031595325
 MonoBehaviour:
@@ -1262,13 +1262,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 4fc3bdf0509fa024cbdc4853e98825f8, type: 3}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 11500000, guid: 54d679bafade05c41a55770790c2975c, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
         m_MethodName: 
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
