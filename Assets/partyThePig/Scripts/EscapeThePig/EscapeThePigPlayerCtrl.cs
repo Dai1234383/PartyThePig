@@ -18,6 +18,8 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
     private AnimalAnimation _animalAnim;
     private bool _isAnime = false;
 
+    public int PlayerIndex => playerIndex;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
