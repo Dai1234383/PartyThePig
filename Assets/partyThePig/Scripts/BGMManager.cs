@@ -107,4 +107,24 @@ public class BGMManager : MonoBehaviour
             Debug.LogWarning($"BGMが登録されていないシーン: {sceneName}");
         }
     }
+
+    /// <summary>
+    /// BGMのミュートを切り替える
+    /// </summary>
+    public void ToggleMute()
+    {
+        if (audioSource != null)
+        {
+            audioSource.mute = !audioSource.mute;
+        }
+    }
+
+    /// <summary>
+    /// 現在のミュート状態を取得する
+    /// </summary>
+    /// <returns>ミュートならtrue、それ以外はfalse</returns>
+    public bool IsMuted()
+    {
+        return audioSource != null && audioSource.mute;
+    }
 }
