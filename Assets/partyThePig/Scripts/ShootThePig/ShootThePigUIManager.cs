@@ -93,7 +93,7 @@ public class ShootThePigUIManager : MonoBehaviour
         // DOTweenのシーケンスを作成
         Sequence seq = DOTween.Sequence();
 
-        seq.Append(WinnerText.transform.DOScale(_scaleUp, _duration * 3)) // ① 大きくなる
+        seq.Append(WinnerText.transform.DOScale(_scaleUp, _duration * 10)) // ① 大きくなる
            .AppendCallback(() => WinnerText.text = WinnerScore.ToString()) // ② 数字を変更
            .Append(WinnerText.transform.DOScale(1f, _duration)) // ③ 元に戻る
            .SetEase(Ease.OutBack) // アニメーションを柔らかくする

@@ -53,20 +53,25 @@ public class EscapeThePigUIManager : MonoBehaviour
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
-        for (int i = 0; i < players.Length && i < _playerItemIcons.Count; i++)
+        foreach (var player in players)
         {
-            var itemSystem = players[i].GetComponent<EscapeThePigPlayerItemSystem>();
-            int index = i;
+            var playerCtrl = player.GetComponent<EscapeThePigPlayerCtrl>();
+            var itemSystem = player.GetComponent<EscapeThePigPlayerItemSystem>();
 
-            if (itemSystem != null)
+            if (playerCtrl == null || itemSystem == null) continue;
+
+            int index = playerCtrl.PlayerIndex; // ← ここでplayerIndexを使う
+
+            if (index < 0 || index >= _playerItemIcons.Count) continue;
+
+            // 初期アイコンを更新
+            UpdateItemIcon(index, itemSystem.GetHeldItem());
+
+            // アイテム変更時にUIを更新
+            itemSystem.OnItemChanged.AddListener((item) =>
             {
-                UpdateItemIcon(index, itemSystem.GetHeldItem());
-
-                itemSystem.OnItemChanged.AddListener((item) =>
-                {
-                    UpdateItemIcon(index, item);
-                });
-            }
+                UpdateItemIcon(index, item);
+            });
         }
     }
 
@@ -83,19 +88,15 @@ public class EscapeThePigUIManager : MonoBehaviour
             {
                 iconImage.sprite = icon.itemIcon;
                 iconImage.enabled = true;
-            }
-            else
-            {
-                iconImage.sprite = _defaultIcon;
-                iconImage.enabled = true;
+                return;
             }
         }
-        else
-        {
-            iconImage.sprite = _defaultIcon;
-            iconImage.enabled = true;
-        }
+
+        // デフォルトアイコン
+        iconImage.sprite = _defaultIcon;
+        iconImage.enabled = true;
     }
+
 
     public void GameOverUI(string winnerName)
     {
@@ -123,7 +124,7 @@ public class EscapeThePigUIManager : MonoBehaviour
         // DOTweenのシーケンスを作成
         Sequence seq = DOTween.Sequence();
 
-        seq.Append(WinnerText.transform.DOScale(_scaleUp, _duration * 3)) // ① 大きくなる
+        seq.Append(WinnerText.transform.DOScale(_scaleUp, _duration * 10)) // ① 大きくなる
            .AppendCallback(() => WinnerText.text = WinnerScore.ToString()) // ② 数字を変更
            .Append(WinnerText.transform.DOScale(1f, _duration)) // ③ 元に戻る
            .SetEase(Ease.OutBack) // アニメーションを柔らかくする
