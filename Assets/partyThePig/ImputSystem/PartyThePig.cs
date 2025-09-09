@@ -280,6 +280,42 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRB"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c98db01-eba4-4c34-bc3c-236bffecd67d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLB"",
+                    ""type"": ""Button"",
+                    ""id"": ""251e2dfe-df51-47f4-b8f6-cc294acd578c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRT"",
+                    ""type"": ""Button"",
+                    ""id"": ""4bb3d540-e12d-471e-9bd6-e5d9ae141eda"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLT"",
+                    ""type"": ""Button"",
+                    ""id"": ""fc948e69-07d0-47f1-a01b-62ec77e849c9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -414,6 +450,50 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43152937-7788-4e57-a547-2e7fdbb1a802"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""495b4cfd-2452-49fe-b09e-ebfd5cf0bff1"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ddfa1ce-d633-4bdd-8fdf-affd7e1357a2"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d00bc0a7-424d-4601-b1b0-c85fea153508"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -443,6 +523,42 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""af2aeae5-1508-49b3-af5c-49e58ff4dd91"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRB"",
+                    ""type"": ""Button"",
+                    ""id"": ""6cc80574-0468-4cf6-836f-7af4a0904e15"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLB"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef346b64-78e9-4788-b5be-0c5c74a8e641"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRT"",
+                    ""type"": ""Button"",
+                    ""id"": ""d41b2779-db78-42bc-84bc-df1fb01b9336"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLT"",
+                    ""type"": ""Button"",
+                    ""id"": ""7c7ddb5a-d244-499a-95e5-b51428f29477"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -515,6 +631,50 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""abe58cd4-206a-4a2e-994c-c6b901a0a8ec"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d15d2eef-a2e2-46d4-be20-46718d69f53a"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e56e2108-d80c-47e9-9b8f-a8ac7dbb0bdd"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d40bb9df-6d26-4508-868d-5f5eff7920b2"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""2D Vector"",
@@ -612,6 +772,42 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""name"": ""Intaract"",
                     ""type"": ""Button"",
                     ""id"": ""846d5b97-4051-4674-9290-2a56f9ecf5f0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRB"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b469734-7253-4a70-91d7-d6cd9d612cee"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRT"",
+                    ""type"": ""Button"",
+                    ""id"": ""d77aa1e6-7c7f-498a-aee0-48f3fb4cf97d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLB"",
+                    ""type"": ""Button"",
+                    ""id"": ""32e08900-5b2e-4a9e-8f26-f955ba532fc0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLT"",
+                    ""type"": ""Button"",
+                    ""id"": ""06925dcd-d324-4aa0-b815-e88440112735"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -731,6 +927,17 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4f32106f-91d1-41d8-a91c-2f393a78faaf"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""9fed2a3e-a74d-4655-becc-2ca89e519f0a"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
@@ -748,6 +955,39 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Intaract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af8ffe99-ccd8-4f57-a4e8-e328be8a5741"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42f8bd1e-a50f-49b4-a70b-7a5c9b931251"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""daaf305f-e5d2-46c2-ba67-4000bf651aad"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLT"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -770,6 +1010,42 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""0838abb3-3c75-4feb-9f99-f07f1b433182"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRB"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a622296-6e28-43c0-8c4d-68a1703177b8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRT"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ee68394-5c79-41cf-b7d9-6208ab45f5a1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLB"",
+                    ""type"": ""Button"",
+                    ""id"": ""1cb49f36-3f42-4527-9505-b855fbd00a37"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLT"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7dc323b-8e80-4301-9034-27d421094551"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -864,6 +1140,50 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a804653-1902-479e-87fe-f1ad8d27a224"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48cab08d-0e24-4822-b6a1-90a507490c87"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c719aded-6799-4342-bbc3-52697010aa44"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c6dd35bf-1881-4b14-8b1a-32e666d15775"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -884,6 +1204,42 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""7ea380d8-5653-4113-86be-34c3b9a79bb5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRB"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6ead26b-b063-4956-8d53-d80b367ea2d8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionRT"",
+                    ""type"": ""Button"",
+                    ""id"": ""59cf0727-1136-4181-b3e8-8e5e977972b2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLB"",
+                    ""type"": ""Button"",
+                    ""id"": ""346dc616-eff7-4a0a-b21b-7d5d2667bd02"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ActionLT"",
+                    ""type"": ""Button"",
+                    ""id"": ""30fc1de1-531a-48d7-af48-d11e68980c33"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -1022,6 +1378,50 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""18ade124-4acd-454a-bfd2-424ff99cf106"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6c0bee0-1972-4963-a323-11977acbcbd7"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionRB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4acc7735-7bad-4578-81d4-2376a5c0e216"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLB"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ba1ebe4e-89f2-47ff-a123-66f943c3456d"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ActionLT"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1053,23 +1453,43 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
         m_JumpThePig = asset.FindActionMap("JumpThePig", throwIfNotFound: true);
         m_JumpThePig_Move = m_JumpThePig.FindAction("Move", throwIfNotFound: true);
         m_JumpThePig_Jump = m_JumpThePig.FindAction("Jump", throwIfNotFound: true);
+        m_JumpThePig_ActionRB = m_JumpThePig.FindAction("ActionRB", throwIfNotFound: true);
+        m_JumpThePig_ActionLB = m_JumpThePig.FindAction("ActionLB", throwIfNotFound: true);
+        m_JumpThePig_ActionRT = m_JumpThePig.FindAction("ActionRT", throwIfNotFound: true);
+        m_JumpThePig_ActionLT = m_JumpThePig.FindAction("ActionLT", throwIfNotFound: true);
         // TankThePig
         m_TankThePig = asset.FindActionMap("TankThePig", throwIfNotFound: true);
         m_TankThePig_Rotate = m_TankThePig.FindAction("Rotate", throwIfNotFound: true);
         m_TankThePig_Move = m_TankThePig.FindAction("Move", throwIfNotFound: true);
         m_TankThePig_Shoot = m_TankThePig.FindAction("Shoot", throwIfNotFound: true);
+        m_TankThePig_ActionRB = m_TankThePig.FindAction("ActionRB", throwIfNotFound: true);
+        m_TankThePig_ActionLB = m_TankThePig.FindAction("ActionLB", throwIfNotFound: true);
+        m_TankThePig_ActionRT = m_TankThePig.FindAction("ActionRT", throwIfNotFound: true);
+        m_TankThePig_ActionLT = m_TankThePig.FindAction("ActionLT", throwIfNotFound: true);
         // EscapeThePig
         m_EscapeThePig = asset.FindActionMap("EscapeThePig", throwIfNotFound: true);
         m_EscapeThePig_Move = m_EscapeThePig.FindAction("Move", throwIfNotFound: true);
         m_EscapeThePig_Intaract = m_EscapeThePig.FindAction("Intaract", throwIfNotFound: true);
+        m_EscapeThePig_ActionRB = m_EscapeThePig.FindAction("ActionRB", throwIfNotFound: true);
+        m_EscapeThePig_ActionRT = m_EscapeThePig.FindAction("ActionRT", throwIfNotFound: true);
+        m_EscapeThePig_ActionLB = m_EscapeThePig.FindAction("ActionLB", throwIfNotFound: true);
+        m_EscapeThePig_ActionLT = m_EscapeThePig.FindAction("ActionLT", throwIfNotFound: true);
         // MoneyThePig
         m_MoneyThePig = asset.FindActionMap("MoneyThePig", throwIfNotFound: true);
         m_MoneyThePig_Move = m_MoneyThePig.FindAction("Move", throwIfNotFound: true);
         m_MoneyThePig_Jump = m_MoneyThePig.FindAction("Jump", throwIfNotFound: true);
+        m_MoneyThePig_ActionRB = m_MoneyThePig.FindAction("ActionRB", throwIfNotFound: true);
+        m_MoneyThePig_ActionRT = m_MoneyThePig.FindAction("ActionRT", throwIfNotFound: true);
+        m_MoneyThePig_ActionLB = m_MoneyThePig.FindAction("ActionLB", throwIfNotFound: true);
+        m_MoneyThePig_ActionLT = m_MoneyThePig.FindAction("ActionLT", throwIfNotFound: true);
         // ShootThePig
         m_ShootThePig = asset.FindActionMap("ShootThePig", throwIfNotFound: true);
         m_ShootThePig_Move = m_ShootThePig.FindAction("Move", throwIfNotFound: true);
         m_ShootThePig_Shoot = m_ShootThePig.FindAction("Shoot", throwIfNotFound: true);
+        m_ShootThePig_ActionRB = m_ShootThePig.FindAction("ActionRB", throwIfNotFound: true);
+        m_ShootThePig_ActionRT = m_ShootThePig.FindAction("ActionRT", throwIfNotFound: true);
+        m_ShootThePig_ActionLB = m_ShootThePig.FindAction("ActionLB", throwIfNotFound: true);
+        m_ShootThePig_ActionLT = m_ShootThePig.FindAction("ActionLT", throwIfNotFound: true);
     }
 
     ~@PartyThePig()
@@ -1260,12 +1680,20 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
     private List<IJumpThePigActions> m_JumpThePigActionsCallbackInterfaces = new List<IJumpThePigActions>();
     private readonly InputAction m_JumpThePig_Move;
     private readonly InputAction m_JumpThePig_Jump;
+    private readonly InputAction m_JumpThePig_ActionRB;
+    private readonly InputAction m_JumpThePig_ActionLB;
+    private readonly InputAction m_JumpThePig_ActionRT;
+    private readonly InputAction m_JumpThePig_ActionLT;
     public struct JumpThePigActions
     {
         private @PartyThePig m_Wrapper;
         public JumpThePigActions(@PartyThePig wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_JumpThePig_Move;
         public InputAction @Jump => m_Wrapper.m_JumpThePig_Jump;
+        public InputAction @ActionRB => m_Wrapper.m_JumpThePig_ActionRB;
+        public InputAction @ActionLB => m_Wrapper.m_JumpThePig_ActionLB;
+        public InputAction @ActionRT => m_Wrapper.m_JumpThePig_ActionRT;
+        public InputAction @ActionLT => m_Wrapper.m_JumpThePig_ActionLT;
         public InputActionMap Get() { return m_Wrapper.m_JumpThePig; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1281,6 +1709,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @ActionRB.started += instance.OnActionRB;
+            @ActionRB.performed += instance.OnActionRB;
+            @ActionRB.canceled += instance.OnActionRB;
+            @ActionLB.started += instance.OnActionLB;
+            @ActionLB.performed += instance.OnActionLB;
+            @ActionLB.canceled += instance.OnActionLB;
+            @ActionRT.started += instance.OnActionRT;
+            @ActionRT.performed += instance.OnActionRT;
+            @ActionRT.canceled += instance.OnActionRT;
+            @ActionLT.started += instance.OnActionLT;
+            @ActionLT.performed += instance.OnActionLT;
+            @ActionLT.canceled += instance.OnActionLT;
         }
 
         private void UnregisterCallbacks(IJumpThePigActions instance)
@@ -1291,6 +1731,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @ActionRB.started -= instance.OnActionRB;
+            @ActionRB.performed -= instance.OnActionRB;
+            @ActionRB.canceled -= instance.OnActionRB;
+            @ActionLB.started -= instance.OnActionLB;
+            @ActionLB.performed -= instance.OnActionLB;
+            @ActionLB.canceled -= instance.OnActionLB;
+            @ActionRT.started -= instance.OnActionRT;
+            @ActionRT.performed -= instance.OnActionRT;
+            @ActionRT.canceled -= instance.OnActionRT;
+            @ActionLT.started -= instance.OnActionLT;
+            @ActionLT.performed -= instance.OnActionLT;
+            @ActionLT.canceled -= instance.OnActionLT;
         }
 
         public void RemoveCallbacks(IJumpThePigActions instance)
@@ -1315,6 +1767,10 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
     private readonly InputAction m_TankThePig_Rotate;
     private readonly InputAction m_TankThePig_Move;
     private readonly InputAction m_TankThePig_Shoot;
+    private readonly InputAction m_TankThePig_ActionRB;
+    private readonly InputAction m_TankThePig_ActionLB;
+    private readonly InputAction m_TankThePig_ActionRT;
+    private readonly InputAction m_TankThePig_ActionLT;
     public struct TankThePigActions
     {
         private @PartyThePig m_Wrapper;
@@ -1322,6 +1778,10 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
         public InputAction @Rotate => m_Wrapper.m_TankThePig_Rotate;
         public InputAction @Move => m_Wrapper.m_TankThePig_Move;
         public InputAction @Shoot => m_Wrapper.m_TankThePig_Shoot;
+        public InputAction @ActionRB => m_Wrapper.m_TankThePig_ActionRB;
+        public InputAction @ActionLB => m_Wrapper.m_TankThePig_ActionLB;
+        public InputAction @ActionRT => m_Wrapper.m_TankThePig_ActionRT;
+        public InputAction @ActionLT => m_Wrapper.m_TankThePig_ActionLT;
         public InputActionMap Get() { return m_Wrapper.m_TankThePig; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1340,6 +1800,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @ActionRB.started += instance.OnActionRB;
+            @ActionRB.performed += instance.OnActionRB;
+            @ActionRB.canceled += instance.OnActionRB;
+            @ActionLB.started += instance.OnActionLB;
+            @ActionLB.performed += instance.OnActionLB;
+            @ActionLB.canceled += instance.OnActionLB;
+            @ActionRT.started += instance.OnActionRT;
+            @ActionRT.performed += instance.OnActionRT;
+            @ActionRT.canceled += instance.OnActionRT;
+            @ActionLT.started += instance.OnActionLT;
+            @ActionLT.performed += instance.OnActionLT;
+            @ActionLT.canceled += instance.OnActionLT;
         }
 
         private void UnregisterCallbacks(ITankThePigActions instance)
@@ -1353,6 +1825,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @ActionRB.started -= instance.OnActionRB;
+            @ActionRB.performed -= instance.OnActionRB;
+            @ActionRB.canceled -= instance.OnActionRB;
+            @ActionLB.started -= instance.OnActionLB;
+            @ActionLB.performed -= instance.OnActionLB;
+            @ActionLB.canceled -= instance.OnActionLB;
+            @ActionRT.started -= instance.OnActionRT;
+            @ActionRT.performed -= instance.OnActionRT;
+            @ActionRT.canceled -= instance.OnActionRT;
+            @ActionLT.started -= instance.OnActionLT;
+            @ActionLT.performed -= instance.OnActionLT;
+            @ActionLT.canceled -= instance.OnActionLT;
         }
 
         public void RemoveCallbacks(ITankThePigActions instance)
@@ -1376,12 +1860,20 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
     private List<IEscapeThePigActions> m_EscapeThePigActionsCallbackInterfaces = new List<IEscapeThePigActions>();
     private readonly InputAction m_EscapeThePig_Move;
     private readonly InputAction m_EscapeThePig_Intaract;
+    private readonly InputAction m_EscapeThePig_ActionRB;
+    private readonly InputAction m_EscapeThePig_ActionRT;
+    private readonly InputAction m_EscapeThePig_ActionLB;
+    private readonly InputAction m_EscapeThePig_ActionLT;
     public struct EscapeThePigActions
     {
         private @PartyThePig m_Wrapper;
         public EscapeThePigActions(@PartyThePig wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_EscapeThePig_Move;
         public InputAction @Intaract => m_Wrapper.m_EscapeThePig_Intaract;
+        public InputAction @ActionRB => m_Wrapper.m_EscapeThePig_ActionRB;
+        public InputAction @ActionRT => m_Wrapper.m_EscapeThePig_ActionRT;
+        public InputAction @ActionLB => m_Wrapper.m_EscapeThePig_ActionLB;
+        public InputAction @ActionLT => m_Wrapper.m_EscapeThePig_ActionLT;
         public InputActionMap Get() { return m_Wrapper.m_EscapeThePig; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1397,6 +1889,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Intaract.started += instance.OnIntaract;
             @Intaract.performed += instance.OnIntaract;
             @Intaract.canceled += instance.OnIntaract;
+            @ActionRB.started += instance.OnActionRB;
+            @ActionRB.performed += instance.OnActionRB;
+            @ActionRB.canceled += instance.OnActionRB;
+            @ActionRT.started += instance.OnActionRT;
+            @ActionRT.performed += instance.OnActionRT;
+            @ActionRT.canceled += instance.OnActionRT;
+            @ActionLB.started += instance.OnActionLB;
+            @ActionLB.performed += instance.OnActionLB;
+            @ActionLB.canceled += instance.OnActionLB;
+            @ActionLT.started += instance.OnActionLT;
+            @ActionLT.performed += instance.OnActionLT;
+            @ActionLT.canceled += instance.OnActionLT;
         }
 
         private void UnregisterCallbacks(IEscapeThePigActions instance)
@@ -1407,6 +1911,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Intaract.started -= instance.OnIntaract;
             @Intaract.performed -= instance.OnIntaract;
             @Intaract.canceled -= instance.OnIntaract;
+            @ActionRB.started -= instance.OnActionRB;
+            @ActionRB.performed -= instance.OnActionRB;
+            @ActionRB.canceled -= instance.OnActionRB;
+            @ActionRT.started -= instance.OnActionRT;
+            @ActionRT.performed -= instance.OnActionRT;
+            @ActionRT.canceled -= instance.OnActionRT;
+            @ActionLB.started -= instance.OnActionLB;
+            @ActionLB.performed -= instance.OnActionLB;
+            @ActionLB.canceled -= instance.OnActionLB;
+            @ActionLT.started -= instance.OnActionLT;
+            @ActionLT.performed -= instance.OnActionLT;
+            @ActionLT.canceled -= instance.OnActionLT;
         }
 
         public void RemoveCallbacks(IEscapeThePigActions instance)
@@ -1430,12 +1946,20 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
     private List<IMoneyThePigActions> m_MoneyThePigActionsCallbackInterfaces = new List<IMoneyThePigActions>();
     private readonly InputAction m_MoneyThePig_Move;
     private readonly InputAction m_MoneyThePig_Jump;
+    private readonly InputAction m_MoneyThePig_ActionRB;
+    private readonly InputAction m_MoneyThePig_ActionRT;
+    private readonly InputAction m_MoneyThePig_ActionLB;
+    private readonly InputAction m_MoneyThePig_ActionLT;
     public struct MoneyThePigActions
     {
         private @PartyThePig m_Wrapper;
         public MoneyThePigActions(@PartyThePig wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_MoneyThePig_Move;
         public InputAction @Jump => m_Wrapper.m_MoneyThePig_Jump;
+        public InputAction @ActionRB => m_Wrapper.m_MoneyThePig_ActionRB;
+        public InputAction @ActionRT => m_Wrapper.m_MoneyThePig_ActionRT;
+        public InputAction @ActionLB => m_Wrapper.m_MoneyThePig_ActionLB;
+        public InputAction @ActionLT => m_Wrapper.m_MoneyThePig_ActionLT;
         public InputActionMap Get() { return m_Wrapper.m_MoneyThePig; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1451,6 +1975,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @ActionRB.started += instance.OnActionRB;
+            @ActionRB.performed += instance.OnActionRB;
+            @ActionRB.canceled += instance.OnActionRB;
+            @ActionRT.started += instance.OnActionRT;
+            @ActionRT.performed += instance.OnActionRT;
+            @ActionRT.canceled += instance.OnActionRT;
+            @ActionLB.started += instance.OnActionLB;
+            @ActionLB.performed += instance.OnActionLB;
+            @ActionLB.canceled += instance.OnActionLB;
+            @ActionLT.started += instance.OnActionLT;
+            @ActionLT.performed += instance.OnActionLT;
+            @ActionLT.canceled += instance.OnActionLT;
         }
 
         private void UnregisterCallbacks(IMoneyThePigActions instance)
@@ -1461,6 +1997,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @ActionRB.started -= instance.OnActionRB;
+            @ActionRB.performed -= instance.OnActionRB;
+            @ActionRB.canceled -= instance.OnActionRB;
+            @ActionRT.started -= instance.OnActionRT;
+            @ActionRT.performed -= instance.OnActionRT;
+            @ActionRT.canceled -= instance.OnActionRT;
+            @ActionLB.started -= instance.OnActionLB;
+            @ActionLB.performed -= instance.OnActionLB;
+            @ActionLB.canceled -= instance.OnActionLB;
+            @ActionLT.started -= instance.OnActionLT;
+            @ActionLT.performed -= instance.OnActionLT;
+            @ActionLT.canceled -= instance.OnActionLT;
         }
 
         public void RemoveCallbacks(IMoneyThePigActions instance)
@@ -1484,12 +2032,20 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
     private List<IShootThePigActions> m_ShootThePigActionsCallbackInterfaces = new List<IShootThePigActions>();
     private readonly InputAction m_ShootThePig_Move;
     private readonly InputAction m_ShootThePig_Shoot;
+    private readonly InputAction m_ShootThePig_ActionRB;
+    private readonly InputAction m_ShootThePig_ActionRT;
+    private readonly InputAction m_ShootThePig_ActionLB;
+    private readonly InputAction m_ShootThePig_ActionLT;
     public struct ShootThePigActions
     {
         private @PartyThePig m_Wrapper;
         public ShootThePigActions(@PartyThePig wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_ShootThePig_Move;
         public InputAction @Shoot => m_Wrapper.m_ShootThePig_Shoot;
+        public InputAction @ActionRB => m_Wrapper.m_ShootThePig_ActionRB;
+        public InputAction @ActionRT => m_Wrapper.m_ShootThePig_ActionRT;
+        public InputAction @ActionLB => m_Wrapper.m_ShootThePig_ActionLB;
+        public InputAction @ActionLT => m_Wrapper.m_ShootThePig_ActionLT;
         public InputActionMap Get() { return m_Wrapper.m_ShootThePig; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1505,6 +2061,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @ActionRB.started += instance.OnActionRB;
+            @ActionRB.performed += instance.OnActionRB;
+            @ActionRB.canceled += instance.OnActionRB;
+            @ActionRT.started += instance.OnActionRT;
+            @ActionRT.performed += instance.OnActionRT;
+            @ActionRT.canceled += instance.OnActionRT;
+            @ActionLB.started += instance.OnActionLB;
+            @ActionLB.performed += instance.OnActionLB;
+            @ActionLB.canceled += instance.OnActionLB;
+            @ActionLT.started += instance.OnActionLT;
+            @ActionLT.performed += instance.OnActionLT;
+            @ActionLT.canceled += instance.OnActionLT;
         }
 
         private void UnregisterCallbacks(IShootThePigActions instance)
@@ -1515,6 +2083,18 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @ActionRB.started -= instance.OnActionRB;
+            @ActionRB.performed -= instance.OnActionRB;
+            @ActionRB.canceled -= instance.OnActionRB;
+            @ActionRT.started -= instance.OnActionRT;
+            @ActionRT.performed -= instance.OnActionRT;
+            @ActionRT.canceled -= instance.OnActionRT;
+            @ActionLB.started -= instance.OnActionLB;
+            @ActionLB.performed -= instance.OnActionLB;
+            @ActionLB.canceled -= instance.OnActionLB;
+            @ActionLT.started -= instance.OnActionLT;
+            @ActionLT.performed -= instance.OnActionLT;
+            @ActionLT.canceled -= instance.OnActionLT;
         }
 
         public void RemoveCallbacks(IShootThePigActions instance)
@@ -1556,26 +2136,46 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnActionRB(InputAction.CallbackContext context);
+        void OnActionLB(InputAction.CallbackContext context);
+        void OnActionRT(InputAction.CallbackContext context);
+        void OnActionLT(InputAction.CallbackContext context);
     }
     public interface ITankThePigActions
     {
         void OnRotate(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnActionRB(InputAction.CallbackContext context);
+        void OnActionLB(InputAction.CallbackContext context);
+        void OnActionRT(InputAction.CallbackContext context);
+        void OnActionLT(InputAction.CallbackContext context);
     }
     public interface IEscapeThePigActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnIntaract(InputAction.CallbackContext context);
+        void OnActionRB(InputAction.CallbackContext context);
+        void OnActionRT(InputAction.CallbackContext context);
+        void OnActionLB(InputAction.CallbackContext context);
+        void OnActionLT(InputAction.CallbackContext context);
     }
     public interface IMoneyThePigActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnActionRB(InputAction.CallbackContext context);
+        void OnActionRT(InputAction.CallbackContext context);
+        void OnActionLB(InputAction.CallbackContext context);
+        void OnActionLT(InputAction.CallbackContext context);
     }
     public interface IShootThePigActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnActionRB(InputAction.CallbackContext context);
+        void OnActionRT(InputAction.CallbackContext context);
+        void OnActionLB(InputAction.CallbackContext context);
+        void OnActionLT(InputAction.CallbackContext context);
     }
 }

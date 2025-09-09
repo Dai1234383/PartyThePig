@@ -5,13 +5,13 @@ using UnityEngine;
 /// </summary>
 public class EscapeThePigInvisibility : MonoBehaviour
 {
-    public bool IsInvisible { get; private set; }
+    public bool _isInvisible { get; private set; }
 
     /// <summary>
     /// ŠO•”‚©‚çŒÄ‚Ño‚µ‚Ä•s‰Â‹ó‘Ô‚ğON/OFF‚É‚·‚é
     /// </summary>
     public void SetInvisible(bool state)
     {
-        IsInvisible = state;
+        _isInvisible = state;
     }
 }

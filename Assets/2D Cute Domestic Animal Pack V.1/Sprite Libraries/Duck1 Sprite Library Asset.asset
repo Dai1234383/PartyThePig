@@ -17,32 +17,34 @@ MonoBehaviour:
     m_Hash: 55916349
     m_CategoryList:
     - m_Name: Body
-      m_Hash: 2073732236
+      m_Hash: 999990412
       m_Sprite: {fileID: 21300000, guid: 9fc94fd3775034b3586d33a551ec6965, type: 3}
     - m_Name: Cheek
-      m_Hash: -1424677743
+      m_Hash: 722805905
       m_Sprite: {fileID: 21300000, guid: 2030981c2e5d9480788e154ad07f35d0, type: 3}
     - m_Name: Eye
-      m_Hash: 1245036881
+      m_Hash: 171295057
       m_Sprite: {fileID: 21300000, guid: 73cabb42c30ef461cbe2864558562ecc, type: 3}
     - m_Name: Head
       m_Hash: 130111906
       m_Sprite: {fileID: 21300000, guid: e49add64fb31941e9b00d0488c583277, type: 3}
     - m_Name: Leg1
-      m_Hash: -973550584
+      m_Hash: 100191240
       m_Sprite: {fileID: 21300000, guid: 7efee305060954074afc236a68924a90, type: 3}
     - m_Name: Leg2
-      m_Hash: 1559338418
+      m_Hash: 485596594
       m_Sprite: {fileID: 21300000, guid: 7e6d6c686a8c9481897665cf2094f4f2, type: 3}
     - m_Name: Leg3
       m_Hash: 737586468
       m_Sprite: {fileID: 21300000, guid: a3ff3da3dadd3471ea8f5e1758d83119, type: 3}
     - m_Name: Leg4
-      m_Hash: -1248708473
+      m_Hash: 898775175
       m_Sprite: {fileID: 21300000, guid: 2d8f7a46c597f4acc98e5260eea91c92, type: 3}
     - m_Name: Wing1
       m_Hash: 856966975
       m_Sprite: {fileID: 21300000, guid: f7174d9a81c614536ad4ef59dccc5e6d, type: 3}
     - m_Name: Wing2
-      m_Hash: -1440934267
+      m_Hash: 706549381
       m_Sprite: {fileID: 21300000, guid: 8c9235f71cc3947618058ae5b34b7088, type: 3}
+  m_ModificationHash: 0
+  m_Version: 1

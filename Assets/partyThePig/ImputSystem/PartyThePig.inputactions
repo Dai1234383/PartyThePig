@@ -258,6 +258,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRB",
+                    "type": "Button",
+                    "id": "1c98db01-eba4-4c34-bc3c-236bffecd67d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLB",
+                    "type": "Button",
+                    "id": "251e2dfe-df51-47f4-b8f6-cc294acd578c",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRT",
+                    "type": "Button",
+                    "id": "4bb3d540-e12d-471e-9bd6-e5d9ae141eda",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLT",
+                    "type": "Button",
+                    "id": "fc948e69-07d0-47f1-a01b-62ec77e849c9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -392,6 +428,50 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43152937-7788-4e57-a547-2e7fdbb1a802",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "495b4cfd-2452-49fe-b09e-ebfd5cf0bff1",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ddfa1ce-d633-4bdd-8fdf-affd7e1357a2",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d00bc0a7-424d-4601-b1b0-c85fea153508",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -421,6 +501,42 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "af2aeae5-1508-49b3-af5c-49e58ff4dd91",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRB",
+                    "type": "Button",
+                    "id": "6cc80574-0468-4cf6-836f-7af4a0904e15",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLB",
+                    "type": "Button",
+                    "id": "ef346b64-78e9-4788-b5be-0c5c74a8e641",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRT",
+                    "type": "Button",
+                    "id": "d41b2779-db78-42bc-84bc-df1fb01b9336",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLT",
+                    "type": "Button",
+                    "id": "7c7ddb5a-d244-499a-95e5-b51428f29477",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -493,6 +609,50 @@
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "abe58cd4-206a-4a2e-994c-c6b901a0a8ec",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d15d2eef-a2e2-46d4-be20-46718d69f53a",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e56e2108-d80c-47e9-9b8f-a8ac7dbb0bdd",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d40bb9df-6d26-4508-868d-5f5eff7920b2",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "2D Vector",
@@ -590,6 +750,42 @@
                     "name": "Intaract",
                     "type": "Button",
                     "id": "846d5b97-4051-4674-9290-2a56f9ecf5f0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRB",
+                    "type": "Button",
+                    "id": "4b469734-7253-4a70-91d7-d6cd9d612cee",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRT",
+                    "type": "Button",
+                    "id": "d77aa1e6-7c7f-498a-aee0-48f3fb4cf97d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLB",
+                    "type": "Button",
+                    "id": "32e08900-5b2e-4a9e-8f26-f955ba532fc0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLT",
+                    "type": "Button",
+                    "id": "06925dcd-d324-4aa0-b815-e88440112735",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -709,6 +905,17 @@
                 },
                 {
                     "name": "",
+                    "id": "4f32106f-91d1-41d8-a91c-2f393a78faaf",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9fed2a3e-a74d-4655-becc-2ca89e519f0a",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -726,6 +933,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Intaract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af8ffe99-ccd8-4f57-a4e8-e328be8a5741",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42f8bd1e-a50f-49b4-a70b-7a5c9b931251",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "daaf305f-e5d2-46c2-ba67-4000bf651aad",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -748,6 +988,42 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "0838abb3-3c75-4feb-9f99-f07f1b433182",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRB",
+                    "type": "Button",
+                    "id": "0a622296-6e28-43c0-8c4d-68a1703177b8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRT",
+                    "type": "Button",
+                    "id": "3ee68394-5c79-41cf-b7d9-6208ab45f5a1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLB",
+                    "type": "Button",
+                    "id": "1cb49f36-3f42-4527-9505-b855fbd00a37",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLT",
+                    "type": "Button",
+                    "id": "d7dc323b-8e80-4301-9034-27d421094551",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -842,6 +1118,50 @@
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a804653-1902-479e-87fe-f1ad8d27a224",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48cab08d-0e24-4822-b6a1-90a507490c87",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c719aded-6799-4342-bbc3-52697010aa44",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c6dd35bf-1881-4b14-8b1a-32e666d15775",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -862,6 +1182,42 @@
                     "name": "Shoot",
                     "type": "Button",
                     "id": "7ea380d8-5653-4113-86be-34c3b9a79bb5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRB",
+                    "type": "Button",
+                    "id": "d6ead26b-b063-4956-8d53-d80b367ea2d8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionRT",
+                    "type": "Button",
+                    "id": "59cf0727-1136-4181-b3e8-8e5e977972b2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLB",
+                    "type": "Button",
+                    "id": "346dc616-eff7-4a0a-b21b-7d5d2667bd02",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ActionLT",
+                    "type": "Button",
+                    "id": "30fc1de1-531a-48d7-af48-d11e68980c33",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -998,6 +1354,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "18ade124-4acd-454a-bfd2-424ff99cf106",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6c0bee0-1972-4963-a323-11977acbcbd7",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionRB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4acc7735-7bad-4578-81d4-2376a5c0e216",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLB",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba1ebe4e-89f2-47ff-a123-66f943c3456d",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActionLT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

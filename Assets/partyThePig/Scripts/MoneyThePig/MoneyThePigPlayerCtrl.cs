@@ -48,12 +48,7 @@ public class MoneyThePigPlayerCtrl : MonoBehaviour
             var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
             if (playerPrefab != null)
             {
-                // 子オブジェクトをクリア
-                foreach (Transform child in transform)
-                {
-                    Destroy(child.gameObject);
-                }
-
+               
                 // プレイヤーの見た目を生成
                 GameObject playerObj = Instantiate(playerPrefab, transform);
 

@@ -38,7 +38,7 @@ public class PlayerManager : MonoBehaviour
         // プレイヤーデータ初期化
         for (int i = 0; i < players.Length; i++)
         {
-            players[i] = new PlayerData(playerSettings[i].playerName, playerSettings[i].playerSprite, playerSettings[i].playerSprite2, playerSettings[i].playerColor);
+            players[i] = new PlayerData(playerSettings[i].playerName, playerSettings[i].playerSprite, playerSettings[i].playerSpriteReverse, playerSettings[i].playerSprite2, playerSettings[i].playerColor);
         }
     }
 
@@ -98,6 +98,7 @@ public class PlayerSetting
 {
     public string playerName = "Player";
     public GameObject playerSprite;
+    public GameObject playerSpriteReverse;
     public GameObject playerSprite2;
     public Color playerColor;
 }
@@ -110,15 +111,17 @@ public class PlayerData
 {
     public string playerName;
     public GameObject playerSprite;
+    public GameObject playerSpriteReverse;
     public GameObject playerSprite2;
     public Color playerColor;
 
     public int score;
 
-    public PlayerData(string name, GameObject spritePrefab, GameObject spritePrefab2, Color color)
+    public PlayerData(string name, GameObject spritePrefab, GameObject reversePrefab, GameObject spritePrefab2, Color color)
     {
         playerName = name;
         playerSprite = spritePrefab;
+        playerSpriteReverse = reversePrefab;
         playerSprite2 = spritePrefab2;
         playerColor = color;
 

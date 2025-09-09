@@ -8,7 +8,7 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
     [Header("操作設定")]
     [SerializeField] private float _moveSpeed = 5f;
 
-    [SerializeField] private int playerIndex; // 0 = 左, 1 = 右（シーンにあらかじめ設定）
+    [SerializeField] private int _playerIndex; // 0 = 左, 1 = 右（シーンにあらかじめ設定）
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private InputActionAsset _action;
     private Rigidbody2D _rb;
@@ -18,7 +18,7 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
     private AnimalAnimation _animalAnim;
     private bool _isAnime = false;
 
-    public int PlayerIndex => playerIndex;
+    public int PlayerIndex => _playerIndex;
 
     private void Awake()
     {
@@ -29,22 +29,15 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
 
     private void Start()
     {
-        transform.position = PlayerManager.Instance.GetStartPosition(playerIndex);
+        transform.position = PlayerManager.Instance.GetStartPosition(_playerIndex);
 
         // 色設定
-        if (PlayerManager.Instance != null && playerIndex >= 0 && playerIndex < PlayerManager.Instance.players.Length)
+        if (PlayerManager.Instance != null && _playerIndex >= 0 && _playerIndex < PlayerManager.Instance.players.Length)
         {
-            var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
+            var playerPrefab = PlayerManager.Instance.players[_playerIndex].playerSprite;
             if (playerPrefab != null)
             {
-                // すでにオブジェクトがある場合は消しておく
-                if (transform.childCount > 0)
-                {
-                    foreach (Transform child in transform)
-                    {
-                        Destroy(child.gameObject);
-                    }
-                }
+                
 
                 // Prefabをこのオブジェクトの子として生成
                 GameObject playerObj = Instantiate(playerPrefab, transform);
@@ -53,17 +46,17 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
                 var renderer = playerObj.GetComponent<SpriteRenderer>();
                 if (renderer != null)
                 {
-                    renderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+                    renderer.color = PlayerManager.Instance.players[_playerIndex].playerColor;
                 }
             }
             else
             {
-                Debug.LogWarning($"プレイヤーPrefabが設定されていません: {playerIndex}");
+                Debug.LogWarning($"プレイヤーPrefabが設定されていません: {_playerIndex}");
             }
         }
         else
         {
-            Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {playerIndex}");
+            Debug.LogWarning($"PlayerManager が見つからないか、playerIndex が無効です: {_playerIndex}");
         }
         _animalAnim = GetComponentInChildren<AnimalAnimation>();
 
@@ -71,11 +64,11 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
         var currentDevice = _playerInput.devices.Count > 0 ? _playerInput.devices[0] : null;
         if (currentDevice != null)
         {
-            PlayerManager.Instance.AssignDevice(playerIndex, currentDevice);
+            PlayerManager.Instance.AssignDevice(_playerIndex, currentDevice);
         }
 
         // 保存済みのデバイスを再ペアリング（シーン再読み込み時など）
-        var savedDevice = PlayerManager.Instance.GetDevice(playerIndex);
+        var savedDevice = PlayerManager.Instance.GetDevice(_playerIndex);
         if (savedDevice != null)
         {
             _playerInput.user.UnpairDevices(); // デバイスだけ解除（ユーザーは残す）
@@ -154,7 +147,7 @@ public class EscapeThePigPlayerCtrl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            string winnerName = (playerIndex == 0) ? "Player2" : "Player1";
+            string winnerName = (_playerIndex == 0) ? "Player2" : "Player1";
             EscapeThePigGameStateManager.Instance.GameOver(winnerName);
         }
     }

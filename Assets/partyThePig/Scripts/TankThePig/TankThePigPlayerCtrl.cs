@@ -19,7 +19,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private Sprite _clearSprite;
 
     [Header("弾・サウンド")]
-    [SerializeField] private float bulletSpeed = 10f;
+    [SerializeField] private float _bulletSpeed = 10f;
     [SerializeField] private int _intervalTime = 2000;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _shootClip;
@@ -57,14 +57,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
             var playerPrefab = PlayerManager.Instance.players[playerIndex].playerSprite;
             if (playerPrefab != null)
             {
-                // すでにオブジェクトがある場合は消しておく
-                if (transform.childCount > 0)
-                {
-                    foreach (Transform child in transform)
-                    {
-                        Destroy(child.gameObject);
-                    }
-                }
+                
 
                 // Prefabをこのオブジェクトの子として生成
                 GameObject playerObj = Instantiate(playerPrefab, transform);
@@ -199,7 +192,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
                 Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
                 if (bulletRb != null)
-                    bulletRb.velocity = -transform.right * bulletSpeed;
+                    bulletRb.velocity = -transform.right * _bulletSpeed;
 
                 // ✅ 効果音を再生
                 if (_audioSource != null && _shootClip != null)

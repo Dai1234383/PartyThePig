@@ -1543,20 +1543,24 @@ MonoBehaviour:
   playerSettings:
   - playerName: Player1
     playerSprite: {fileID: 4119936680399398443, guid: 5ffb47ef8732341a2aa4ac3c94a4429e, type: 3}
+    playerSpriteReverse: {fileID: 0}
     playerSprite2: {fileID: 4119936680399398443, guid: 2285a50eed0e2ad44985565cd86c8009, type: 3}
     playerColor: {r: 0.10213423, g: 1, b: 0, a: 1}
   - playerName: Player2
     playerSprite: {fileID: 3087165819916839608, guid: 1ee3c74dd954e480a8da103f1ff400ec, type: 3}
+    playerSpriteReverse: {fileID: 0}
     playerSprite2: {fileID: 4119936680399398443, guid: 88b100cd17230014e9fc61fe97954f99, type: 3}
     playerColor: {r: 0.0059747696, g: 0, b: 1, a: 1}
   players:
   - playerName: 
     playerSprite: {fileID: 0}
+    playerSpriteReverse: {fileID: 0}
     playerSprite2: {fileID: 0}
     playerColor: {r: 0, g: 0, b: 0, a: 0}
     score: 0
   - playerName: 
     playerSprite: {fileID: 0}
+    playerSpriteReverse: {fileID: 0}
     playerSprite2: {fileID: 0}
     playerColor: {r: 0, g: 0, b: 0, a: 0}
     score: 0
