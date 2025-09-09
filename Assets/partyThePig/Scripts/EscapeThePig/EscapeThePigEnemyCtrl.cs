@@ -81,7 +81,7 @@ public class EscapeThePigEnemyCtrl : MonoBehaviour
             if (player == null) continue;
 
             var invis = player.GetComponent<EscapeThePigInvisibility>();
-            if (invis != null && invis.IsInvisible) continue;
+            if (invis != null && invis._isInvisible) continue;
 
             float dist = Vector2.Distance(transform.position, player.position);
             if (dist < minDist)

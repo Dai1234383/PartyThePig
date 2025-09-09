@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.25, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9036784906381941317}
@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 1033638815909382522}
   - component: {fileID: 8885050743932741281}
   - component: {fileID: 6102919295158956406}
+  - component: {fileID: 8221194659869776834}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -339,10 +340,18 @@ MonoBehaviour:
     m_ActionId: 0838abb3-3c75-4feb-9f99-f07f1b433182
     m_ActionName: MoneyThePig/Jump[/XInputControllerWindows/buttonSouth,/DualShock4GamepadHID/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b968bca9-9a34-4ec5-b97f-361b30b47e27
+    m_ActionName: ShootThePig/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7ea380d8-5653-4113-86be-34c3b9a79bb5
+    m_ActionName: ShootThePig/Shoot[/XInputControllerWindows/buttonWest,/Keyboard/enter]
+  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1033638815909382522}
-        m_TargetAssemblyTypeName: JumpThePigPlayerCtrl, Assembly-CSharp
-        m_MethodName: OnPose
+      - m_Target: {fileID: 8221194659869776834}
+        m_TargetAssemblyTypeName: EmoteController, Assembly-CSharp
+        m_MethodName: EmoteRB
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -352,16 +361,56 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 10802090-120f-47ea-b827-84e1e264c332
-    m_ActionName: JumpThePig/Pose[/Keyboard/escape,/XInputControllerWindows/start]
+    m_ActionId: 1c98db01-eba4-4c34-bc3c-236bffecd67d
+    m_ActionName: JumpThePig/ActionRB[/DualShock4GamepadHID/rightShoulder,/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b968bca9-9a34-4ec5-b97f-361b30b47e27
-    m_ActionName: ShootThePig/Move[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      m_Calls:
+      - m_Target: {fileID: 8221194659869776834}
+        m_TargetAssemblyTypeName: EmoteController, Assembly-CSharp
+        m_MethodName: EmoteLB
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 251e2dfe-df51-47f4-b8f6-cc294acd578c
+    m_ActionName: JumpThePig/ActionLB[/DualShock4GamepadHID/leftShoulder,/XInputControllerWindows/leftShoulder]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7ea380d8-5653-4113-86be-34c3b9a79bb5
-    m_ActionName: ShootThePig/Shoot[/XInputControllerWindows/buttonWest,/Keyboard/enter]
+      m_Calls:
+      - m_Target: {fileID: 8221194659869776834}
+        m_TargetAssemblyTypeName: EmoteController, Assembly-CSharp
+        m_MethodName: EmoteRT
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4bb3d540-e12d-471e-9bd6-e5d9ae141eda
+    m_ActionName: JumpThePig/ActionRT[/DualShock4GamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8221194659869776834}
+        m_TargetAssemblyTypeName: EmoteController, Assembly-CSharp
+        m_MethodName: EmoteLT
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fc948e69-07d0-47f1-a01b-62ec77e849c9
+    m_ActionName: JumpThePig/ActionLT[/DualShock4GamepadHID/leftTrigger,/XInputControllerWindows/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Controller
   m_DefaultActionMap: JumpThePig
@@ -385,6 +434,8 @@ MonoBehaviour:
   _action: {fileID: 0}
   _moveSpeed: 4
   _jumpForce: 9
+  sfxSource: {fileID: 0}
+  jumpSE: {fileID: 0}
 --- !u!50 &8885050743932741281
 Rigidbody2D:
   serializedVersion: 4
@@ -457,3 +508,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8221194659869776834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125769590366045006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb38a384915ebc4ca0fc5d3edeca11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emoteSprites:
+  - {fileID: 21300000, guid: 0800590e5cb14b94a908e4abf4d0e991, type: 3}
+  - {fileID: 21300000, guid: c275ce186608e284da3260d1678b4671, type: 3}
+  - {fileID: 21300000, guid: 4d99b342752259d42a3c6fa58d04ed0d, type: 3}
+  - {fileID: 21300000, guid: d63314340ad389743af61b3d8fcf8dd4, type: 3}
+  _duration: 0.3
+  _displayTime: 2
+  _offset: {x: 1, y: 1}

@@ -49,6 +49,7 @@ public class EscapeThePigUIManager : MonoBehaviour
         SetupItemUIListeners();
     }
 
+
     private void SetupItemUIListeners()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -126,7 +127,7 @@ public class EscapeThePigUIManager : MonoBehaviour
 
         seq.Append(WinnerText.transform.DOScale(_scaleUp, _duration * 10)) // ‡@ ‘å‚«‚­‚È‚é
            .AppendCallback(() => WinnerText.text = WinnerScore.ToString()) // ‡A ”Žš‚ð•ÏX
-           .Append(WinnerText.transform.DOScale(1f, _duration)) // ‡B Œ³‚É–ß‚é
+           .Append(WinnerText.transform.DOScale(1f, _duration/4)) // ‡B Œ³‚É–ß‚é
            .SetEase(Ease.OutBack) // ƒAƒjƒ[ƒVƒ‡ƒ“‚ð_‚ç‚©‚­‚·‚é
            .OnComplete(() => { ActiveButton(); });
     }
@@ -137,4 +138,5 @@ public class EscapeThePigUIManager : MonoBehaviour
         _restartButton.gameObject.SetActive(true);
 
     }
+
 }

@@ -1327,6 +1327,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fff32cb41f83f74989a7c3da0aeb9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgmButtonText: {fileID: 0}
+  bgmButtonImage: {fileID: 0}
+  bgmOnSprite: {fileID: 0}
+  bgmOffSprite: {fileID: 0}
 --- !u!114 &1130707523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1903,26 +1907,6 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 1511746530}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
-      value: b968bca9-9a34-4ec5-b97f-361b30b47e27
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
-      value: 7ea380d8-5653-4113-86be-34c3b9a79bb5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
-      value: ShootThePig/Move
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
-      value: ShootThePig/Shoot
-      objectReference: {fileID: 0}
     - target: {fileID: 3250109366345639553, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -2461,26 +2445,6 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 1511746530}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.data[14].m_ActionId
-      value: b968bca9-9a34-4ec5-b97f-361b30b47e27
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
-      value: 7ea380d8-5653-4113-86be-34c3b9a79bb5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.data[14].m_ActionName
-      value: ShootThePig/Move
-      objectReference: {fileID: 0}
-    - target: {fileID: 1617823125045661450, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
-      value: ShootThePig/Shoot
-      objectReference: {fileID: 0}
     - target: {fileID: 3250109366345639553, guid: 071d93b0ec9d7d44ca039b29348f4ddf, type: 3}
       propertyPath: m_Name
       value: Player1

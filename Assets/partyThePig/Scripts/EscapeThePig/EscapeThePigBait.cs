@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EscapeThePigBait : MonoBehaviour
 {
-    [SerializeField] private float lifeTime = 5f;
+    [SerializeField] private float _lifeTime = 5f;
 
     private void Start()
     {
-        Invoke(nameof(DestroySelf), lifeTime);
+        Invoke(nameof(DestroySelf), _lifeTime);
     }
 
     private void DestroySelf()

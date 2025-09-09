@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Labels:
   - m_Name: Cow
-    m_Hash: -1583777412
+    m_Hash: 563706236
     m_CategoryList:
     - m_Name: Body
-      m_Hash: 2073732236
+      m_Hash: 999990412
       m_Sprite: {fileID: 21300000, guid: a53746591a919489eaa41092d2b090e0, type: 3}
     - m_Name: Cheek
-      m_Hash: -1424677743
+      m_Hash: 722805905
       m_Sprite: {fileID: 21300000, guid: 359a594af3fa541bbbc4e2270d5743d7, type: 3}
     - m_Name: Ear1
-      m_Hash: -2008232630
+      m_Hash: 139251018
       m_Sprite: {fileID: 21300000, guid: 4ff3d035f947b48eb90b054fd24f4754, type: 3}
     - m_Name: Ear2
       m_Hash: 289774832
       m_Sprite: {fileID: 21300000, guid: 6d10c72c1c26e4dad9ed42e282e83acd, type: 3}
     - m_Name: Eye
-      m_Hash: 1245036881
+      m_Hash: 171295057
       m_Sprite: {fileID: 21300000, guid: 0d14ae917f6a040a586e898a53bb17b5, type: 3}
     - m_Name: Head
       m_Hash: 130111906
@@ -38,13 +38,13 @@ MonoBehaviour:
       m_Hash: 808581613
       m_Sprite: {fileID: 21300000, guid: 45795805d543f4814abe83217c935f37, type: 3}
     - m_Name: Horn2
-      m_Hash: -1455904681
+      m_Hash: 691578967
       m_Sprite: {fileID: 21300000, guid: 27d4101b02a104608a03b8e73546ec6e, type: 3}
     - m_Name: Leg1
-      m_Hash: -973550584
+      m_Hash: 100191240
       m_Sprite: {fileID: 21300000, guid: 2ab2bd39525e348bc9b69fe96f2801b3, type: 3}
     - m_Name: Leg2
-      m_Hash: 1559338418
+      m_Hash: 485596594
       m_Sprite: {fileID: 21300000, guid: da3f084c9e07c4b019f4c57adb0113f5, type: 3}
     - m_Name: Leg3
       m_Hash: 737586468
@@ -53,5 +53,7 @@ MonoBehaviour:
       m_Hash: 593204815
       m_Sprite: {fileID: 21300000, guid: 94380826ba45348d8a4807f8181a8885, type: 3}
     - m_Name: Tail
-      m_Hash: -603645085
+      m_Hash: 470096739
       m_Sprite: {fileID: 21300000, guid: 7d662ec686cbb49699d6a34987168c8a, type: 3}
+  m_ModificationHash: 0
+  m_Version: 1

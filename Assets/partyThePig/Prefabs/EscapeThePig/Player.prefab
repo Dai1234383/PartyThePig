@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8000077621916556748}
   - component: {fileID: 3909966106571361205}
   - component: {fileID: 7555529451800024453}
+  - component: {fileID: 3993970458785999386}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -51,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 8
-  playerIndex: 0
+  _playerIndex: 0
   _spriteRenderer: {fileID: 0}
   _action: {fileID: 0}
 --- !u!114 &8267716152892325636
@@ -183,6 +184,134 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7ea380d8-5653-4113-86be-34c3b9a79bb5
     m_ActionName: ShootThePig/Shoot[/XInputControllerWindows/buttonWest,/DualShock4GamepadHID/buttonWest,/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1c98db01-eba4-4c34-bc3c-236bffecd67d
+    m_ActionName: JumpThePig/ActionRB[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 251e2dfe-df51-47f4-b8f6-cc294acd578c
+    m_ActionName: JumpThePig/ActionLB[/DualShock4GamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4bb3d540-e12d-471e-9bd6-e5d9ae141eda
+    m_ActionName: JumpThePig/ActionRT[/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fc948e69-07d0-47f1-a01b-62ec77e849c9
+    m_ActionName: JumpThePig/ActionLT[/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6cc80574-0468-4cf6-836f-7af4a0904e15
+    m_ActionName: TankThePig/ActionRB[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ef346b64-78e9-4788-b5be-0c5c74a8e641
+    m_ActionName: TankThePig/ActionLB[/DualShock4GamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d41b2779-db78-42bc-84bc-df1fb01b9336
+    m_ActionName: TankThePig/ActionRT[/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7c7ddb5a-d244-499a-95e5-b51428f29477
+    m_ActionName: TankThePig/ActionLT[/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3993970458785999386}
+        m_TargetAssemblyTypeName: EmoteController, Assembly-CSharp
+        m_MethodName: EmoteRB
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4b469734-7253-4a70-91d7-d6cd9d612cee
+    m_ActionName: EscapeThePig/ActionRB[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3993970458785999386}
+        m_TargetAssemblyTypeName: EmoteController, Assembly-CSharp
+        m_MethodName: EmoteRT
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d77aa1e6-7c7f-498a-aee0-48f3fb4cf97d
+    m_ActionName: EscapeThePig/ActionRT[/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3993970458785999386}
+        m_TargetAssemblyTypeName: EmoteController, Assembly-CSharp
+        m_MethodName: EmoteLB
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 32e08900-5b2e-4a9e-8f26-f955ba532fc0
+    m_ActionName: EscapeThePig/ActionLB[/DualShock4GamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3993970458785999386}
+        m_TargetAssemblyTypeName: EmoteController, Assembly-CSharp
+        m_MethodName: EmoteLT
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 06925dcd-d324-4aa0-b815-e88440112735
+    m_ActionName: EscapeThePig/ActionLT[/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a622296-6e28-43c0-8c4d-68a1703177b8
+    m_ActionName: MoneyThePig/ActionRB[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3ee68394-5c79-41cf-b7d9-6208ab45f5a1
+    m_ActionName: MoneyThePig/ActionRT[/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1cb49f36-3f42-4527-9505-b855fbd00a37
+    m_ActionName: MoneyThePig/ActionLB[/DualShock4GamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d7dc323b-8e80-4301-9034-27d421094551
+    m_ActionName: MoneyThePig/ActionLT[/DualShock4GamepadHID/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d6ead26b-b063-4956-8d53-d80b367ea2d8
+    m_ActionName: ShootThePig/ActionRB[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59cf0727-1136-4181-b3e8-8e5e977972b2
+    m_ActionName: ShootThePig/ActionRT[/DualShock4GamepadHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 346dc616-eff7-4a0a-b21b-7d5d2667bd02
+    m_ActionName: ShootThePig/ActionLB[/DualShock4GamepadHID/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 30fc1de1-531a-48d7-af48-d11e68980c33
+    m_ActionName: ShootThePig/ActionLT[/DualShock4GamepadHID/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Controller
   m_DefaultActionMap: EscapeThePig
@@ -314,3 +443,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac2a01d4b27aba48bd7aa1e4150cfb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3993970458785999386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970839705767719658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb38a384915ebc4ca0fc5d3edeca11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emoteSprites: []
+  _duration: 0.3
+  _displayTime: 2
+  _offset: {x: 1, y: 1}
