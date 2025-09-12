@@ -14,6 +14,8 @@ public class ShootThePigUIManager : MonoBehaviour
     [SerializeField] private Button _restartButton;             // リスタートボタン
     [SerializeField] private TextMeshProUGUI _player1ScoreText;
     [SerializeField] private TextMeshProUGUI _player2ScoreText;
+    [SerializeField] private GameObject _player1Effect;
+    [SerializeField] private GameObject _player2Effect;
 
     [SerializeField] private TextMeshProUGUI _P1ScoreText;
     [SerializeField] private TextMeshProUGUI _P2ScoreText;
@@ -77,24 +79,25 @@ public class ShootThePigUIManager : MonoBehaviour
         _P2ScoreText.text = _player2Score.ToString();
         if (winnerName == "Player1")
         {
-            ChangeNumber(_P1ScoreText, _player1Score + 1);
+            ChangeNumber(_P1ScoreText, _player1Score + 1, _player1Effect);
         }
         else if (winnerName == "Player2")
         {
-            ChangeNumber(_P2ScoreText, _player2Score + 1);
+            ChangeNumber(_P2ScoreText, _player2Score + 1, _player2Effect);
         }
     }
 
     /// <summary>
     /// 数字をアニメーション付きで変更
     /// </summary>
-    public void ChangeNumber(TextMeshProUGUI WinnerText, int WinnerScore)
+    public void ChangeNumber(TextMeshProUGUI WinnerText, int WinnerScore, GameObject EffectObj)
     {
         // DOTweenのシーケンスを作成
         Sequence seq = DOTween.Sequence();
 
         seq.Append(WinnerText.transform.DOScale(_scaleUp, _duration * 10)) // ① 大きくなる
            .AppendCallback(() => WinnerText.text = WinnerScore.ToString()) // ② 数字を変更
+           .AppendCallback(() => EffectObj.SetActive(true))
            .Append(WinnerText.transform.DOScale(1f, _duration)) // ③ 元に戻る
            .SetEase(Ease.OutBack) // アニメーションを柔らかくする
            .OnComplete(() => { ActiveButton(); });
