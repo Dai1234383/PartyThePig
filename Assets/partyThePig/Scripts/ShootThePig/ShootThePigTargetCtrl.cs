@@ -3,6 +3,7 @@ using UnityEngine;
 public class ShootThePigTargetCtrl : MonoBehaviour
 {
     [SerializeField] private int _targetScore;
+    [SerializeField] private SpriteRenderer _splashImage;
 
     private SpriteRenderer _spriteRenderer;
     private int _paintedPlayerIndex = -1;
@@ -19,12 +20,16 @@ public class ShootThePigTargetCtrl : MonoBehaviour
     /// <param name="PlayerIndex"></param>
     public void Hit(int PlayerIndex)
     {
+        if(_paintedPlayerIndex == -1)
+        {
+            _splashImage.gameObject.SetActive(true);
+        }
         //¡“h‚Á‚Ä‚¢‚él‚ÆŒ‚‚Á‚½l‚ªˆá‚¤‚È‚ç
         if (_paintedPlayerIndex != PlayerIndex)
         {
             //Œ‚‚Á‚½l‚ğ“o˜^
             _paintedPlayerIndex = PlayerIndex;
-            _spriteRenderer.color = PlayerManager.Instance.players[PlayerIndex].playerColor;
+            _splashImage.color = PlayerManager.Instance.players[PlayerIndex].playerColor;
             string PlayerName;
             if (PlayerIndex == 0)
             {
