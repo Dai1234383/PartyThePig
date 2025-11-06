@@ -438,6 +438,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8169249890358781031, guid: 6f1cbb4eb8dd29644bc7780015a20a25, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169249890358781031, guid: 6f1cbb4eb8dd29644bc7780015a20a25, type: 3}
+      propertyPath: m_Navigation.m_SelectOnLeft
+      value: 
+      objectReference: {fileID: 1077663575}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1110,6 +1118,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 421453123}
     m_Modifications:
+    - target: {fileID: 4139882469075955776, guid: ef61b178eab053c43908304096834b6c, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139882469075955776, guid: ef61b178eab053c43908304096834b6c, type: 3}
+      propertyPath: m_Navigation.m_SelectOnRight
+      value: 
+      objectReference: {fileID: 132985815}
     - target: {fileID: 6367594704162370976, guid: ef61b178eab053c43908304096834b6c, type: 3}
       propertyPath: m_Name
       value: ReStart

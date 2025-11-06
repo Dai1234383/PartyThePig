@@ -86,6 +86,10 @@ public class MoneyThePigUIManager : MonoBehaviour
         {
             ChangeNumber(_P2ScoreText, _player2Score + 1,_player2Effect);
         }
+        else
+        {
+            ActiveButton();
+        }
     }
 
     public void UpdateScoreUI()

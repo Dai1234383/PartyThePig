@@ -19,7 +19,7 @@ public class TankThePigBalletCtrl : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _rb.gravityScale = 0;             // ’e‚È‚Ì‚Åd—Í–³Œø
         _rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // ‚·‚è”²‚¯–h~
-        _rb.freezeRotation = true;        // ‰ñ“]‚ÍŒÅ’è
+        //_rb.freezeRotation = true;        // ‰ñ“]‚ÍŒÅ’è
 
         // ‰Šú‘¬“x‚ğİ’è
         _rb.velocity = -transform.right * _speed;

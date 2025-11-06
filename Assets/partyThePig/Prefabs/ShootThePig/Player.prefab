@@ -427,7 +427,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb38a384915ebc4ca0fc5d3edeca11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _emoteSprites: []
+  _emoteSprites:
+  - {fileID: 21300000, guid: 426ae3aa69fdf3c40a0a2a99a82954ce, type: 3}
+  - {fileID: 21300000, guid: 54089eb56a7a5f24db12152e558a4637, type: 3}
+  - {fileID: 21300000, guid: 55837d5c8036cfb4c9ec88f53d2150ac, type: 3}
+  - {fileID: 21300000, guid: d2bc7c155ce540b41988c6468d9edf5e, type: 3}
   _duration: 0.3
   _displayTime: 2
   _offset: {x: 1, y: 1}
