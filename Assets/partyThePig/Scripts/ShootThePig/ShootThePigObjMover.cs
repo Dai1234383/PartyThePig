@@ -33,23 +33,50 @@ public class ShootThePigObjMover : MonoBehaviour
                 break;
 
             case 1: // ”góiã‚É‚ä‚ê‚éj
-                Sequence waveSeqUp = DOTween.Sequence();
-                waveSeqUp.Append(transform.DOMoveX(_targetX, duration).SetEase(Ease.Linear));
-                waveSeqUp.Join(transform.DOLocalMoveY(transform.position.y + 2f, duration / 4)
-                    .SetLoops(-1, LoopType.Yoyo)
-                    .SetEase(Ease.InOutSine)
-                    .SetLink(gameObject));
-                waveSeqUp.OnComplete(() => Destroy(gameObject));
+                {
+                    Sequence waveSeqUp = DOTween.Sequence();
+                    Tween moveXTween = transform.DOMoveX(_targetX, duration)
+                        .SetEase(Ease.Linear)
+                        .SetLink(gameObject);
+
+                    Tween waveY = transform.DOLocalMoveY(transform.position.y + 2f, duration / 4)
+                        .SetLoops(-1, LoopType.Yoyo)
+                        .SetEase(Ease.InOutSine)
+                        .SetLink(gameObject);
+
+                    waveSeqUp.Append(moveXTween);
+                    waveSeqUp.Join(waveY);
+
+                    // XˆÚ“®‚ªI‚í‚Á‚½‚ç”g“®’â~ ¨ ”j‰ó
+                    moveXTween.OnComplete(() =>
+                    {
+                        waveY.Kill(); // Y‚Ì—h‚êTween‚ğ’â~
+                        Destroy(gameObject);
+                    });
+                }
                 break;
 
             case 2: // ”gói‰º‚É‚ä‚ê‚éj
-                Sequence waveSeqDown = DOTween.Sequence();
-                waveSeqDown.Append(transform.DOMoveX(_targetX, duration).SetEase(Ease.Linear));
-                waveSeqDown.Join(transform.DOLocalMoveY(transform.position.y - 2f, duration / 4)
-                    .SetLoops(-1, LoopType.Yoyo)
-                    .SetEase(Ease.InOutSine)
-                    .SetLink(gameObject));
-                waveSeqDown.OnComplete(() => Destroy(gameObject));
+                {
+                    Sequence waveSeqDown = DOTween.Sequence();
+                    Tween moveXTween = transform.DOMoveX(_targetX, duration)
+                        .SetEase(Ease.Linear)
+                        .SetLink(gameObject);
+
+                    Tween waveY = transform.DOLocalMoveY(transform.position.y - 2f, duration / 4)
+                        .SetLoops(-1, LoopType.Yoyo)
+                        .SetEase(Ease.InOutSine)
+                        .SetLink(gameObject);
+
+                    waveSeqDown.Append(moveXTween);
+                    waveSeqDown.Join(waveY);
+
+                    moveXTween.OnComplete(() =>
+                    {
+                        waveY.Kill();
+                        Destroy(gameObject);
+                    });
+                }
                 break;
 
             case 3: // ‰•œ + ˆê’â~‚µ‚Ä–ß‚é

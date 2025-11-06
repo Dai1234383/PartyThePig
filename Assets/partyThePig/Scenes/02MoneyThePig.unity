@@ -1426,19 +1426,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnObjects:
-  - prefab: {fileID: 6489618003493762281, guid: 00f11be905f41d44b8a9a813d0f64c2c, type: 3}
-    spawnRate: 40
   - prefab: {fileID: 5116175074224764391, guid: e2ff7c06b106aba41b271cbc318e0697, type: 3}
-    spawnRate: 40
+    spawnRate: 50
   - prefab: {fileID: 379282035161198382, guid: 339d8a485dd4ff642b2480b30158aae5, type: 3}
-    spawnRate: 10
+    spawnRate: 30
   - prefab: {fileID: 2707569685672101995, guid: 827ae09ef2b026242aa8ef655b597824, type: 3}
-    spawnRate: 5
+    spawnRate: 15
   - prefab: {fileID: 5609033631053981501, guid: 72082b944493d4f4b812045f0b85754c, type: 3}
     spawnRate: 5
   _spawnInterval: 0.3
   _spawnRangeX: 7.5
-  _spawnRangeZ: 7.5
+  _spawnRangeZ: 0
   _spawnHeight: 6
 --- !u!114 &1130707525
 MonoBehaviour:

@@ -11,6 +11,7 @@ public class TankThePigPlayerCtrl : MonoBehaviour
     [SerializeField] private float _rotateSpeed = 200f;
     [SerializeField] private int _maxLife = 3;
     [SerializeField] private int playerIndex;
+    [SerializeField]private Sprite _bulletSprite;
 
     [Header("オブジェクト参照")]
     [SerializeField] private SpriteRenderer[] _spriteRenderers;
@@ -188,7 +189,10 @@ public class TankThePigPlayerCtrl : MonoBehaviour
 
                 SpriteRenderer bulletRenderer = bullet.GetComponent<SpriteRenderer>();
                 if (bulletRenderer != null && PlayerManager.Instance != null)
-                    bulletRenderer.color = PlayerManager.Instance.players[playerIndex].playerColor;
+                {
+                    bulletRenderer.sprite = _bulletSprite;
+                }
+                    
 
                 Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
                 if (bulletRb != null)

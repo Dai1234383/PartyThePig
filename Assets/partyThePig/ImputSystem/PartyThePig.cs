@@ -132,61 +132,6 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""24e38f5d-2f7f-404b-907a-d90fc14c16d4"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""75e91e34-979c-4897-9d9a-4ef24622f805"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""34ffaadf-e4d9-425e-86ec-3e150c30e73e"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""436bcb2d-cb44-4779-9b33-b9fd0eab3577"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""226f84c4-0ded-4d36-84d7-23ee034c4791"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Navigate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""77edb7e5-7e0f-4348-9634-b997de7606cc"",
                     ""path"": ""<Gamepad>/buttonSouth"",
@@ -331,28 +276,6 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""560cac6f-009e-4e33-87de-fd6c48de98f7"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""abe1667c-0a5a-44ea-9919-8eea02833c1e"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""left"",
                     ""id"": ""cb2a284e-b195-4c03-b079-7c4b6090c236"",
                     ""path"": ""<Gamepad>/leftStick/left"",
@@ -376,7 +299,7 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""5ffbd478-52c1-4037-8bb3-ce02cec25125"",
+                    ""id"": ""9c15d4fe-3659-49c3-ad84-0e7a5d2567d5"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -386,31 +309,9 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""11c0ccdb-f394-4142-9e90-165bbc166c51"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""d76e338d-7cad-405b-a895-b8c32c8723e1"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""left"",
-                    ""id"": ""0a132972-2767-40c9-ae1e-0e5ae8e71523"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""id"": ""d6c42afd-fdc1-48ca-9651-22028e377148"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -420,8 +321,8 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""45e0ffa6-e8af-4ca3-bf3b-edc06f8333d0"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""id"": ""e8a4a46e-6e75-4aa0-af0f-c075e6eb5171"",
+                    ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -817,61 +718,6 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""6fedc571-e191-40bc-b9ed-88af0f02fa56"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""f00fc433-faae-4ee6-b27a-d412d634969e"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""84eae97f-25c3-4963-a211-2fa16537f36e"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""85ea2d9a-ce30-47eb-af16-3d50b972613e"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""50a7af0f-ed02-4000-b0b7-d2f31f84af04"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
                     ""id"": ""52edd51c-5aee-4ed1-821e-7f166ff967a4"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -918,6 +764,61 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                     ""name"": ""right"",
                     ""id"": ""154f9867-4258-48db-8aa0-5bf153a01785"",
                     ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""c2d44f31-97a7-46de-a5dc-7386d665cddb"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""698acf94-cae3-41cc-8c33-fbab45823e62"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8c50b2ec-bdc6-462f-9a1e-eff4598bdaf4"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""b940047c-2049-41d7-8c39-a8e85e1b9daf"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""aa5ee885-abf2-4b19-b6ef-e4403cff418e"",
+                    ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1088,7 +989,7 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""b3b2bd68-595e-4332-9c3a-c858f08a1222"",
+                    ""id"": ""15f6f4a3-b404-479f-b8eb-c877173fc43a"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1099,8 +1000,8 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""982c0df9-dad3-4c14-a99f-dabf1fdf174a"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""id"": ""1e40dfe5-879f-4f84-a034-b1470300b7b9"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1110,8 +1011,8 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""5f8ab6d2-dd33-46ab-9676-c7d6823c5e51"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""id"": ""d295181a-9e0f-457a-b2e3-adef2cca59d5"",
+                    ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1304,7 +1205,7 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""117faec7-b898-4ef6-ba16-93487e444ec6"",
+                    ""id"": ""a1679abf-5c7e-47d2-a3ac-758a74f97bcd"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -1315,8 +1216,8 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""cda8834f-c594-4091-b7d0-2fcd95915374"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""id"": ""2ae4a8dd-e3fd-46ee-8743-80a1cbf7e452"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1326,8 +1227,8 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""a3025365-c43b-44f8-ac16-606bb253ac15"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""id"": ""9af7b716-ad3e-416c-ad68-33c3b731f4a2"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1337,8 +1238,8 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""4f15414e-8362-4e0d-a8f0-082be4ad4b14"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""id"": ""6a0922f0-1af1-49ce-9319-e38538861893"",
+                    ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -1348,8 +1249,8 @@ public partial class @PartyThePig: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""63c04fdb-2184-429b-b4e5-1d1cbedec0cf"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""id"": ""dc07571f-8f3b-4c26-8144-c6538562b709"",
+                    ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

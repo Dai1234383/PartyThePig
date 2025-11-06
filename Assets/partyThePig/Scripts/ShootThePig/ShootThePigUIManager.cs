@@ -85,6 +85,10 @@ public class ShootThePigUIManager : MonoBehaviour
         {
             ChangeNumber(_P2ScoreText, _player2Score + 1, _player2Effect);
         }
+        else
+        {
+            ActiveButton();
+        }
     }
 
     /// <summary>

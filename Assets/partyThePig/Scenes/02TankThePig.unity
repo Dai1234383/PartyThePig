@@ -500,6 +500,10 @@ PrefabInstance:
       propertyPath: _audioSource
       value: 
       objectReference: {fileID: 1077548398}
+    - target: {fileID: 5330831201906538608, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: _bulletSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eea4540ab28454c4ab1bf80d76b51820, type: 3}
     - target: {fileID: 5863472997401286363, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -2456,6 +2460,10 @@ PrefabInstance:
       propertyPath: _audioSource
       value: 
       objectReference: {fileID: 96792562382397922}
+    - target: {fileID: 5330831201906538608, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
+      propertyPath: _bulletSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7354f8fc47cae9546b679c26537ea1e8, type: 3}
     - target: {fileID: 5863472997401286363, guid: 8f661f5b57bb4c940b51a6871f155a8b, type: 3}
       propertyPath: m_Sprite
       value: 
